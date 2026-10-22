@@ -295,7 +295,9 @@
     var title=el('h2','ilit-tour-title');
     var text=el('p','ilit-tour-text');
     var extra=el('div','ilit-tour-extra');
-    [kicker,title,text,extra].forEach(function(n){card.appendChild(n)});
+    var minBtn=el('button','ilit-tour-min','Minimize');minBtn.type='button';minBtn.hidden=true;minBtn.setAttribute('aria-expanded','true');   // explore steps only: shrinks the card to its corner and back
+    [minBtn,kicker,title,text,extra].forEach(function(n){card.appendChild(n)});
+    minBtn.onclick=function(){ui.minimized=!ui.minimized;setMinimized(ui.minimized);place()};
     root.appendChild(card);
     // the control bar
     var dock=el('div','ilit-tour-dock');dock.setAttribute('role','toolbar');dock.setAttribute('aria-label','Tour controls');
@@ -315,7 +317,7 @@
     back.onclick=function(){go(-1)};
     next.onclick=function(){go(1)};
     skip.onclick=skipSection;
-    ui={root:root,path:path,rings:rings,cursor:cursor,card:card,dock:dock,kicker:kicker,title:title,text:text,extra:extra,fill:fill,count:count,back:back,skip:skip,next:next,live:live,items:[],focus:0};
+    ui={root:root,path:path,rings:rings,cursor:cursor,card:card,dock:dock,kicker:kicker,title:title,text:text,extra:extra,minBtn:minBtn,fill:fill,count:count,back:back,skip:skip,next:next,live:live,items:[],focus:0};
     slowScrolling(true);
     lockPage(true);
     return ui;
@@ -975,7 +977,9 @@
     }
     // the pointer has done its job once the card speaks: it goes, so it never sits on the card (a hover result keeps it)
     if(!pending&&!(mode==='show'&&(s.hover||(s.act||[]).some(function(a){return a.do==='hover'}))))hidePointer();
-    if(!pending&&(u.cardStep!==s.id||mode!=='show')){u.collapsed=false;u.cardStep=s.id}   // a step starts with its full card
+    if(!pending&&(u.cardStep!==s.id||mode!=='show')){u.collapsed=false;u.minimized=false;u.cardStep=s.id}   // a step starts with its full card
+    u.minBtn.hidden=!(s.explore&&mode==='show');
+    setMinimized(!!u.minimized&&!u.minBtn.hidden);
     u.card.classList.toggle('large',s.cardSize==='large');
     collapseCard(!pending&&mode==='show'&&u.collapsed);
     u.count.textContent='Step '+(i+1)+' of '+STEPS.length;
@@ -1004,6 +1008,12 @@
     var s=STEPS[state&&state.i]||{};
     ui.card.classList.toggle('hint',!!on);
     if(on){ui.kicker.textContent='';ui.title.textContent='';ui.text.textContent=s.hint||'';ui.extra.textContent=''}
+  }
+  function setMinimized(on){
+    if(!ui)return;
+    ui.card.classList.toggle('min',on);
+    ui.minBtn.textContent=on?'Show the tour card':'Minimize';
+    ui.minBtn.setAttribute('aria-expanded',on?'false':'true');
   }
   var moved=0,lastMouse=null;
   function touched(e){

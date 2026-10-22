@@ -16,7 +16,9 @@ import asyncio
 import os
 import sys
 import time
+from contextlib import asynccontextmanager
 from collections import deque
+from urllib.parse import urlsplit
 
 import httpx
 from fastapi import FastAPI, Request
@@ -29,6 +31,7 @@ MODEL = os.getenv("OLLAMA_MODEL", "qwen3:4b")
 
 MAX_MESSAGE_CHARS = 1000
 MAX_USER_TURNS = 10
+MAX_MESSAGES = 2 * MAX_USER_TURNS + 1  # 10 questions, 10 answers, the new question
 MAX_ANSWER_TOKENS = 400
 REQUEST_TIMEOUT_SECONDS = 90.0
 PER_VISITOR_PER_MINUTE = 10
@@ -71,7 +74,7 @@ def _allowed(visitor: str, now: float) -> bool:
 def _clean_messages(payload: object) -> list[dict[str, str]] | None:
 	"""Keep only plain user/assistant text within the caps; None if invalid."""
 	raw = payload.get("messages") if isinstance(payload, dict) else None
-	if not isinstance(raw, list) or not raw:
+	if not isinstance(raw, list) or not raw or len(raw) > MAX_MESSAGES:
 		return None
 	cleaned: list[dict[str, str]] = []
 	for item in raw:
@@ -102,13 +105,28 @@ async def _ask_model(messages: list[dict[str, str]]) -> str:
 		"think": False,
 		"options": {"temperature": 0.3, "num_predict": MAX_ANSWER_TOKENS},
 	}
-	async with httpx.AsyncClient(timeout=REQUEST_TIMEOUT_SECONDS) as client:
+	# trust_env=False: never route a visitor's text through a proxy set in the environment.
+	async with httpx.AsyncClient(timeout=REQUEST_TIMEOUT_SECONDS, trust_env=False) as client:
 		response = await client.post(f"{OLLAMA_URL}/api/chat", json=payload)
 		response.raise_for_status()
 		return str(response.json().get("message", {}).get("content", "")).strip()
 
 
-app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+def check_config() -> None:
+	"""Refuse to run unless switched on and pointed at a model on this same machine."""
+	if os.getenv("ILIT_CHAT_DEMO") != "1":
+		raise RuntimeError("Chat demo is off. Set ILIT_CHAT_DEMO=1 to run it.")
+	if urlsplit(OLLAMA_URL).hostname not in ("127.0.0.1", "localhost", "::1"):
+		raise RuntimeError("OLLAMA_BASE_URL must point at this machine (127.0.0.1 or localhost).")
+
+
+@asynccontextmanager
+async def _lifespan(_app: FastAPI):
+	check_config()
+	yield
+
+
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None, lifespan=_lifespan)
 
 
 @app.middleware("http")
@@ -184,7 +202,7 @@ button:disabled{opacity:.5;cursor:default}
 </style></head><body><main>
 <span class="tag">Under development &middot; demo</span>
 <h1>Local AI chat demo</h1>
-<div class="warn"><strong>This is a test, not part of iLit.</strong> Your messages are sent to an AI model running on Daniel&rsquo;s own computer, and to no outside service. Nothing is saved. It cannot look up case law, answers can be wrong or slow, and it is not legal advice. Please do not type anything confidential. One person can chat at a time.</div>
+<div class="warn"><strong>This is a test, not part of iLit.</strong> Your messages are sent to an AI model running on Daniel&rsquo;s own computer, and to no outside service. This page does not save your messages. It cannot look up case law, answers can be wrong or slow, and it is not legal advice. Please do not type anything confidential. One person can chat at a time.</div>
 <div id="log" aria-live="polite"><p class="m hint">Ask a short question. The model is small, so answers may take 10 to 60 seconds.</p></div>
 <form id="f"><textarea id="t" maxlength="1000" placeholder="Type a question (up to 1,000 characters)" aria-label="Your message"></textarea><button id="b">Send</button></form>
 <p class="foot">Up to 10 questions per chat. Reloading the page clears the chat.</p>
@@ -206,8 +224,10 @@ document.getElementById('f').addEventListener('submit',async e=>{
 
 
 if __name__ == "__main__":
-	if os.getenv("ILIT_CHAT_DEMO") != "1":
-		sys.exit("Chat demo is off. Set ILIT_CHAT_DEMO=1 to run it.")
+	try:
+		check_config()
+	except RuntimeError as exc:
+		sys.exit(str(exc))
 	import uvicorn
 
 	uvicorn.run(app, host=HOST, port=PORT, log_level="warning", access_log=False)

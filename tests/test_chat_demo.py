@@ -7,6 +7,7 @@ from scripts import chat_demo
 @pytest.fixture(autouse=True)
 def _fresh_state(monkeypatch):
 	monkeypatch.setenv("CHAT_DEMO_STUB", "1")
+	monkeypatch.setenv("ILIT_CHAT_DEMO", "1")
 	chat_demo._visitor_hits.clear()
 	chat_demo._global_hits.clear()
 	for key in chat_demo.counters:
@@ -21,7 +22,7 @@ def test_page_is_labelled_and_not_indexable():
 	response = TestClient(chat_demo.app).get("/")
 	assert response.status_code == 200
 	assert "Under development" in response.text
-	assert "Nothing is saved" in response.text
+	assert "does not save your messages" in response.text
 	assert "noindex" in response.headers["x-robots-tag"]
 
 
@@ -66,3 +67,29 @@ def test_busy_returns_503(monkeypatch):
 		chat_demo._busy.release()
 		loop.close()
 	assert response.status_code == 503
+
+
+def test_too_many_messages_rejected():
+	pair = [{"role": "user", "content": "q"}, {"role": "assistant", "content": "a"}]
+	assert _post(TestClient(chat_demo.app), pair * 9 + [{"role": "user", "content": "q"}]).status_code == 200
+	assert _post(TestClient(chat_demo.app), pair * 500 + [{"role": "user", "content": "q"}]).status_code == 400
+
+
+def test_refuses_to_start_when_off(monkeypatch):
+	monkeypatch.delenv("ILIT_CHAT_DEMO")
+	with pytest.raises(RuntimeError, match="off"):
+		with TestClient(chat_demo.app):
+			pass
+
+
+@pytest.mark.parametrize("url", ["http://example.com:11434", "http://192.168.1.5:11434", "http://127.0.0.1.evil.com"])
+def test_refuses_non_local_model_host(monkeypatch, url):
+	monkeypatch.setattr(chat_demo, "OLLAMA_URL", url)
+	with pytest.raises(RuntimeError, match="this machine"):
+		chat_demo.check_config()
+
+
+@pytest.mark.parametrize("url", ["http://127.0.0.1:11434", "http://localhost:11434", "http://[::1]:11434"])
+def test_accepts_local_model_host(monkeypatch, url):
+	monkeypatch.setattr(chat_demo, "OLLAMA_URL", url)
+	chat_demo.check_config()

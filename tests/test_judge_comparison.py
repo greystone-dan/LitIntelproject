@@ -432,6 +432,7 @@ def test_comparison_ui_is_sibling_and_renderer_preserves_denominators(db):
 	data = fetch_judge_comparison(db, "judge-a", "judge-b")
 	data["shared_issues"][0]["issue"] = "<img src=x onerror=alert(1)>"
 	result = subprocess.run([node, "-e", """
+const JP_ISSUES_ENABLED=true;
 const num=value=>String(value);
 const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 """ + functions + "\nconsole.log(renderJudgeComparison(" + json.dumps(data) + "));"],
@@ -443,6 +444,18 @@ const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').re
 	assert result.index("Shared recorded issues") < result.index("Overall outcomes") < result.index("— coverage")
 	assert "&lt;img" in result and "<img" not in result
 	assert 'class="ci-table"' not in result
+
+	hidden = subprocess.run([node, "-e", """
+const JP_ISSUES_ENABLED=false;
+const num=value=>String(value);
+const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+""" + functions + "\nconsole.log(renderJudgeComparison(" + json.dumps(data) + "));"],
+		text=True, capture_output=True, check=True).stdout
+	assert "Shared recorded issues" not in hidden and "Recorded issue" not in hidden
+	assert "Recorded issues:" not in hidden and "&lt;img" not in hidden
+	assert "Year, tag and authority counts" in hidden and "missing issues" not in hidden and "Multiple issues" not in hidden
+	assert hidden.index("Overall outcomes") < hidden.index("— coverage")
+	assert "const JP_ISSUES_ENABLED=false;" in html
 
 	class Grids(HTMLParser):
 		def __init__(self):

@@ -740,7 +740,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="search-meta" id="judgeProfileSearchMeta">Search by judge name to open a profile.</div>
 <div id="judgeProfileContent" class="search-meta">Loading judge profiles...</div>
 <details class="judge-compare">
-<summary><span id="judgeComparisonHeading">Compare two judges</span><small>Shared issues and outcomes</small></summary>
+<summary><span id="judgeComparisonHeading">Compare two judges</span><small id="judgeComparisonSub">Shared issues and outcomes</small></summary>
 <p>Start typing a judge's name in each box and pick a match. The comparison uses all linked decisions, independently of profile Minister filters. Stored research signals are not a complete judicial record or a ranking.</p>
 <form id="judgeComparisonForm">
 <div><label for="judgeCompareA">First judge</label>
@@ -1127,6 +1127,9 @@ function syncJudgeMinisterCheckboxes(){const select=document.getElementById('jud
 async function searchCitationCases(event){event.preventDefault();const query=document.getElementById('citationCaseQuery').value.trim(),meta=document.getElementById('citationSearchMeta'),results=document.getElementById('citationSearchResults');if(!query){meta.textContent='Enter a case title.';results.innerHTML='';return}meta.textContent='Searching case titles...';try{const response=await fetch(`/api/citation-intelligence/cases?title=${encodeURIComponent(query)}&limit=12`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const cases=await response.json();meta.textContent=`Found ${num(cases.length)} matching case${cases.length===1?'':'s'}.`;results.innerHTML=cases.map(item=>`<button class="case-result citation-case-result" data-case-id="${item.case_id}"><div class="result-title">${esc(item.title)}</div><div class="result-meta">${esc(item.citation||'No citation')} · ${esc(item.court)} · ${esc(item.date)}</div></button>`).join('')||'<div class="empty">No case titles matched.</div>';results.querySelectorAll('.citation-case-result').forEach(button=>button.onclick=()=>{const url=new URL(location.href);url.searchParams.set('tab','citation-intelligence');url.searchParams.set('case_id',button.dataset.caseId);history.pushState(null,'',url);loadCitationIntelligence()})}catch(error){meta.textContent=String(error);results.innerHTML=''}}
 async function searchJudgeProfiles(event){event.preventDefault();const query=document.getElementById('judgeProfileQuery').value.trim(),meta=document.getElementById('judgeProfileSearchMeta'),box=document.getElementById('judgeProfileContent');if(!query){meta.textContent='Enter a judge name.';loadJudgeProfiles();return}const generation=++judgeProfileGeneration;meta.textContent='Searching judge names...';return fetchCurrentPanel(`/api/judge-profiles?q=${encodeURIComponent(query)}&limit=50`,box,{isCurrent:()=>generation===judgeProfileGeneration,onError:()=>{meta.textContent='Judge search unavailable.'},render:profiles=>{meta.textContent=`Found ${num(profiles.length)} matching judge${profiles.length===1?'':'s'}.`;box.innerHTML=profiles.map(profile=>`<button class="case-result judge-profile-result" data-slug="${esc(profile.slug)}"><div class="result-title">${esc(profile.display_name)}</div><div class="result-meta">${esc(profile.primary_court||'Court not recorded')} · ${num(profile.decision_count)} decisions</div></button>`).join('')||'<div class="empty">No judge profiles matched.</div>';box.querySelectorAll('.judge-profile-result').forEach(button=>button.onclick=()=>{const url=new URL(location.href);url.searchParams.set('tab','judge-profile');url.searchParams.set('judge',button.dataset.slug);history.pushState(null,'',url);loadJudgeProfile(button.dataset.slug)})}});}
 const ciState={caseId:null,active:'overview',page:1,selectedYear:null,initialized:false};
+// Issue outcomes (judge profile card and the two-judge comparison) are hidden until they work; set true to bring them back.
+const JP_ISSUES_ENABLED=false;
+if(!JP_ISSUES_ENABLED)document.getElementById('judgeComparisonSub')?.remove();
 // Comparison is a sibling of profile content: legacy positional table selectors stay intact.
 function judgeComparisonCount(stat,unit='linked decisions'){
   return `${num(stat.count)} / ${num(stat.denominator)} ${esc(unit)}`;
@@ -1138,7 +1141,7 @@ function judgeComparisonOutcomes(outcomes){
 }
 function renderJudgeComparison(data){
   const judges=data.judges, names=['a','b'].map(side=>esc(judges[side].profile.display_name));
-  const shared=data.shared_issues.map(issue=>`<tr><th scope="row">${esc(issue.issue)}</th>${['a','b'].map(side=>
+  const shared=!JP_ISSUES_ENABLED?'':data.shared_issues.map(issue=>`<tr><th scope="row">${esc(issue.issue)}</th>${['a','b'].map(side=>
     `<td>${judgeComparisonCount(issue[side].decisions)}<br>${judgeComparisonOutcomes(issue[side].outcomes)}</td>`
   ).join('')}</tr>`).join('');
   const table=(heading,rows)=>`<h4>${heading}</h4><div class="table-wrap"><table><tbody>${rows||'<tr><td>No recorded data.</td></tr>'}</tbody></table></div>`;
@@ -1147,23 +1150,23 @@ function renderJudgeComparison(data){
       `<tr><th scope="row">${label(item)}</th><td>${judgeComparisonCount(item.decisions)}</td></tr>`
     ).join('');
     return `<section><h4>${esc(judge.profile.display_name)} — coverage</h4>
-      <p>Linked decisions: ${judgeComparisonCount(judge.decisions)}. Recorded issues: ${judgeComparisonCount(judge.decisions_with_issues)}.</p>
+      <p>Linked decisions: ${judgeComparisonCount(judge.decisions)}. ${JP_ISSUES_ENABLED?`Recorded issues: ${judgeComparisonCount(judge.decisions_with_issues)}.`:''}</p>
       ${table('Decisions per year',rows(judge.yearly_decisions,item=>esc(item.year)))}
       <p>Undated: ${judgeComparisonCount(judge.undated_decisions)}</p>
       ${table('Most-used tags (up to ten)',rows(judge.top_tags,item=>`${esc(item.category)}: ${esc(item.value)}`))}
       ${table('Most-cited authorities (up to ten)',rows(judge.top_authorities,item=>esc(item.citation)))}
       </section>`;
   }).join('');
-  return `<h4>Shared recorded issues and outcomes</h4>
+  const sharedSection=JP_ISSUES_ENABLED?`<h4>Shared recorded issues and outcomes</h4>
     <p>Only issues recorded in at least five distinct decisions for each judge are included.
     Issue labels come from stored case issues, normalized for whitespace and case, without metadata fallback.
     Outcome denominators below are decisions in the issue set; unclassified decisions remain visible.</p>
     <div class="table-wrap"><table><thead><tr><th>Recorded issue</th><th>${names[0]}</th><th>${names[1]}</th></tr></thead>
-    <tbody>${shared||'<tr><td colspan="3">No shared recorded issues meet the minimum for both judges.</td></tr>'}</tbody></table></div>
-    <h4>Overall outcomes</h4><div class="judge-comparison-grid judge-comparison-outcomes">${['a','b'].map(side=>`<p><strong>${esc(judges[side].profile.display_name)}</strong><br>${judgeComparisonOutcomes(data.outcomes[side])}</p>`).join('')}</div>
-    <p>Year, issue, tag and authority counts use all linked decisions for that judge as denominator. Repeated tag/citation occurrences count once per decision.
-    Multiple issues, tags or authorities can overlap, so their counts are not additive.
-    Unknown outcomes are unclassified; missing issues are not inferred. No causal, bias or harshness conclusions are supported.</p><div class="judge-comparison-grid judge-comparison-coverage">${coverage}</div>`;
+    <tbody>${shared||'<tr><td colspan="3">No shared recorded issues meet the minimum for both judges.</td></tr>'}</tbody></table></div>`:'';
+  return `${sharedSection}<h4>Overall outcomes</h4><div class="judge-comparison-grid judge-comparison-outcomes">${['a','b'].map(side=>`<p><strong>${esc(judges[side].profile.display_name)}</strong><br>${judgeComparisonOutcomes(data.outcomes[side])}</p>`).join('')}</div>
+    <p>${JP_ISSUES_ENABLED?'Year, issue, tag and authority':'Year, tag and authority'} counts use all linked decisions for that judge as denominator. Repeated tag/citation occurrences count once per decision.
+    ${JP_ISSUES_ENABLED?'Multiple issues, tags or authorities':'Multiple tags or authorities'} can overlap, so their counts are not additive.
+    Unknown outcomes are unclassified${JP_ISSUES_ENABLED?'; missing issues are not inferred':''}. No causal, bias or harshness conclusions are supported.</p><div class="judge-comparison-grid judge-comparison-coverage">${coverage}</div>`;
 }
 let judgeComparisonRequest;
 async function loadJudgeComparison(event){

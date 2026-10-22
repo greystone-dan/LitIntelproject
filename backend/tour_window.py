@@ -2,10 +2,12 @@
 
 The tour plays from pictures of the live site taken once, with the highlights, the pointer and the
 cards drawn on top. Every step (its words, highlight boxes, card position, pointer path and which
-picture to show) is plain data in ``site_assets/tour_window/tour_data.json`` (the recorded screens sit beside it in ``img/``). Nothing is fetched from the
-database or the outside, no AI is called, and nothing is written: the visitor only presses Next, Back
-or Exit. ``/tour-window.js`` is the small script that opens the window over any page; the window
-itself is the page at ``/tour-window/``.
+picture to show) is plain data in ``site_assets/tour_window/tour_data.json`` (the recorded screens sit
+beside it in ``img/``). The window reads only that data and those pictures: no database query, no
+outside request, no AI call, and nothing is written. The visitor only presses Next, Back or Exit.
+``/tour-window.js`` is the small script that opens the window over any page; the window itself is the
+page at ``/tour-window/``. After a re-capture, bump ``config.version`` in the data so browsers fetch the
+new pictures.
 """
 
 from __future__ import annotations

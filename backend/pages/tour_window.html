@@ -231,6 +231,8 @@ function exitTour(){if(EMBED){closeTour();return}backToSite(CFG.intro.frame)}
 function jump(i){$('list').classList.remove('on');if(!inTour)startTour();showQuiet(i)}
 async function boot(){
  const d=await (await fetch('tour_data.json')).json();CFG=d.config;MS=d.moments;T=CFG.timing;
+ const V=CFG.version?'?v='+CFG.version:'';   // a re-capture bumps the version, so the browser's day-long picture cache is skipped
+ const U=x=>x?x+V:x;CFG.intro.frame=U(CFG.intro.frame);MS.forEach(m=>{m.final=U(m.final);m.actions.forEach(a=>{if(a.src)a.src=U(a.src);if(a.frames)a.frames=a.frames.map(U)})});
  const imgs=new Set([CFG.intro.frame]);MS.forEach(m=>{imgs.add(m.final);m.actions.forEach(a=>{if(a.src)imgs.add(a.src)})});imgs.forEach(s=>{const i=new Image();i.src=s});
  $('tb').innerHTML=MS.map((m,i)=>'<tr class="row" tabindex="0" data-i="'+i+'"><td>'+m.step+'</td><td>'+m.title.replace(/</g,'&lt;')+'</td><td>'+m.section+'</td><td>'+m.actions.filter(a=>a.do==='press').length+(m.actions.some(a=>a.do==='type')?' + typing':'')+'</td><td>'+(m.note?'<span class="flag">'+m.note+'</span>':'')+'</td></tr>').join('');
  $('tb').onclick=e=>{const r=e.target.closest('tr');if(r)jump(+r.dataset.i)};

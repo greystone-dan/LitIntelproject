@@ -93,3 +93,7 @@ def test_opener_script_parses(tmp_path):
 
 def test_data_is_one_file_the_player_reads():
     assert json.loads(window_data())["config"]["timing"]["typeMs"] > 0
+
+
+def test_data_carries_a_version_so_a_recapture_skips_the_picture_cache():
+    assert json.loads(window_data())["config"]["version"]

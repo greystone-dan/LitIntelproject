@@ -134,10 +134,13 @@
   return '<aside class="pos-note pos-d'+depth+' pos-b-'+E(mino?'dissent':lead)+'" data-pos-note data-pos-layer="'+E(lay.key)+'">'+layer+'<span class="pos-tags">'+chips+kinds+'</span>'+text+'<span class="pos-cites" data-pos-cites hidden></span></aside>';
  }
 
+ /* Experimental (Daniel, 10-22): nothing of this is drawn, or fetched, unless the site's Experimental switch is on. */
+ const experimentalOn=()=>document.body.classList.contains('reader-experimental');
  function sync(){
   if(pos.busy)return;pos.busy=true;
   try{
    body.querySelectorAll('[data-pos-bar],[data-pos-note]').forEach(n=>n.remove());
+   if(!experimentalOn())return;
    const data=current();
    if(!data||data.none)return;
    if(!data.unavailable&&!data.paragraphs)return;
@@ -161,5 +164,6 @@
   const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&(n.hasAttribute('data-pos-bar')||n.hasAttribute('data-pos-note')||n.hasAttribute('data-frame-card')||n.hasAttribute('data-issue-card')||n.hasAttribute('data-links-card')||n.hasAttribute('data-layers-bar')||n.hasAttribute('data-pn-note')))));
   if(real)schedule();
  }).observe(body,{childList:true,subtree:true});
+ new MutationObserver(schedule).observe(document.body,{attributes:true,attributeFilter:['class']});
  schedule();
 })();

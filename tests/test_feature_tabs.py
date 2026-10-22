@@ -1489,3 +1489,13 @@ def test_reader_source_strip_describes_each_piece_with_numbers_from_the_examples
         assert passes[key]['number'] in strip  # the number is the one on the Coming soon card
     html = routes._data_explorer_page_html()
     assert html.count('id="readerSourceStrip"') == 1 and 'body:not(.reader-experimental) .src-strip{display:none!important}' in html
+
+
+def test_whose_position_is_experimental_only():
+    # Daniel, 2026-10-22: the bar and paragraph notes show only when the Experimental switch is on.
+    from pathlib import Path
+    pages = Path(__file__).resolve().parents[1] / "backend" / "pages"
+    css = (pages / "reader_positions.css").read_text(encoding="utf-8")
+    js = (pages / "reader_positions.js").read_text(encoding="utf-8")
+    assert "body:not(.reader-experimental) :is([data-pos-bar],[data-pos-note]){display:none!important}" in css
+    assert "if(!experimentalOn())return;" in js

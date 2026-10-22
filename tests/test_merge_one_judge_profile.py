@@ -6,7 +6,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
 from backend.database import Base, Case, CaseJudgeProfile, JudgeProfile, JudgeProfileAlias
-from scripts.merge_one_judge_profile import describe, problems
+from scripts.fix_common import read_undo_file
+from scripts.merge_one_judge_profile import describe, problems, remove_alias_rows, write_alias_row
 
 
 @pytest.fixture
@@ -39,4 +40,24 @@ def test_refuses_other_court_other_name_and_existing_alias(db):
 	db.add(JudgeProfileAlias(alias_profile_id=2, canonical_profile_id=1, source="manual"))
 	db.commit()
 	assert any("already aliased" in p for p in problems(db, db.get(JudgeProfile, 2), db.get(JudgeProfile, 1)))
+	assert db.scalars(select(JudgeProfileAlias)).all()
+
+
+def test_write_then_undo_removes_exactly_that_row(db, tmp_path):
+	db.add(JudgeProfileAlias(alias_profile_id=4, canonical_profile_id=1, source="rule"))
+	db.commit()
+	path = tmp_path / "undo.jsonl"
+	write_alias_row(db, 2, 1, path)
+	db.commit()
+	rows = list(read_undo_file(path))
+	assert len(rows) == 1 and rows[0]["alias_profile_id"] == 2
+	assert remove_alias_rows(db, rows) == 1
+	db.commit()
+	assert [a.alias_profile_id for a in db.scalars(select(JudgeProfileAlias))] == [4]
+
+
+def test_undo_ignores_rows_that_do_not_match_ids(db):
+	db.add(JudgeProfileAlias(id=7, alias_profile_id=4, canonical_profile_id=1, source="rule"))
+	db.commit()
+	assert remove_alias_rows(db, [{"id": 7, "alias_profile_id": 2, "canonical_profile_id": 1}]) == 0
 	assert db.scalars(select(JudgeProfileAlias)).all()

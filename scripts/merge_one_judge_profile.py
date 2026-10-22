@@ -63,6 +63,25 @@ def problems(session, alias: JudgeProfile, canonical: JudgeProfile) -> list[str]
 	return found
 
 
+def write_alias_row(session, alias_id: int, canonical_id: int, undo_path: Path) -> JudgeProfileAlias:
+	"""Add the alias row (flushed, not committed) and save the undo file with its id and both profile ids."""
+	row = JudgeProfileAlias(alias_profile_id=alias_id, canonical_profile_id=canonical_id, source="manual")
+	session.add(row)
+	session.flush()
+	write_undo_file(undo_path, [{"id": row.id, "alias_profile_id": alias_id, "canonical_profile_id": canonical_id}])
+	return row
+
+
+def remove_alias_rows(session, rows: list[dict]) -> int:
+	"""Delete only rows whose id AND both profile ids match the undo file; returns how many were removed."""
+	removed = 0
+	for r in rows:
+		removed += session.execute(delete(JudgeProfileAlias).where(
+			JudgeProfileAlias.id == r["id"], JudgeProfileAlias.alias_profile_id == r["alias_profile_id"],
+			JudgeProfileAlias.canonical_profile_id == r["canonical_profile_id"])).rowcount
+	return removed
+
+
 def main() -> int:
 	parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 	parser.add_argument("--alias-id", type=int, help="The duplicate (smaller) profile id.")
@@ -74,10 +93,10 @@ def main() -> int:
 	args = parser.parse_args()
 	with SessionLocal() as session:
 		if args.undo:
-			ids = [row["id"] for row in read_undo_file(args.undo)]
-			print(f"alias_rows_to_remove={len(ids)} ids={ids}")
+			rows = [r for r in read_undo_file(args.undo) if {"id", "alias_profile_id", "canonical_profile_id"} <= r.keys()]
+			print(f"alias_rows_to_remove={len(rows)} of {sum(1 for _ in read_undo_file(args.undo))} lines in {args.undo}")
 			if args.apply:
-				removed = session.execute(delete(JudgeProfileAlias).where(JudgeProfileAlias.id.in_(ids))).rowcount if ids else 0
+				removed = remove_alias_rows(session, rows)
 				session.commit()
 				print(f"alias_rows_removed={removed}")
 			else:
@@ -112,12 +131,14 @@ def main() -> int:
 			if bad or args.expected_count != to_write:
 				print(f"Expected {args.expected_count} but would write {to_write}; nothing changed.")
 				return 1
-			row = JudgeProfileAlias(alias_profile_id=alias.id, canonical_profile_id=canonical.id, source="manual")
-			session.add(row)
-			session.flush()
 			undo_path = args.undo_file or default_undo_path("merge_one_judge")
-			write_undo_file(undo_path, [{"id": row.id, "alias_profile_id": row.alias_profile_id, "canonical_profile_id": row.canonical_profile_id}])
-			session.commit()
+			try:
+				write_alias_row(session, alias.id, canonical.id, undo_path)
+				session.commit()
+			except Exception:
+				session.rollback()
+				undo_path.unlink(missing_ok=True)
+				raise
 			print(f"alias_rows_written=1 undo file: {undo_path}")
 			print("Undo with: python scripts/merge_one_judge_profile.py --undo", undo_path, "--apply")
 		else:

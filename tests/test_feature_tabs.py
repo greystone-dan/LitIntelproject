@@ -1044,6 +1044,13 @@ def test_judge_profiles_default_to_most_linked_profiles():
     assert [item["slug"] for item in result] == ["judge-a", "judge-c", "judge-b"]
 
 
+def test_judge_issue_outcomes_card_is_hidden_until_flag_is_enabled():
+    html = routes._data_explorer_page_html()
+
+    assert "const JP_ISSUES_ENABLED=false;" in html
+    assert "${JP_ISSUES_ENABLED?`<div class=\"ix-card wide\" id=\"jpIssuesCard\">" in html
+
+
 def test_judge_issue_outcomes_are_lazy_loaded_and_disclose_safe_denominators():
     html = routes._data_explorer_page_html()
 

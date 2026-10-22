@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 199
+Active scripts documented: 200
 
 ## Catalog
 
@@ -64,6 +64,7 @@ Active scripts documented: 199
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `check_site_tour.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_site_tour.py --help` |
+| `check_tour_window.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_tour_window.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_case_types.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_case_types.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
@@ -964,6 +965,20 @@ Active scripts documented: 199
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_site_tour.py --help
+```
+
+## `scripts/check_tour_window.py`
+
+**Purpose:** Walk the recorded tour window the way a visitor does: press Next from step 1 to the end, and report what looks wrong. python scripts/check_tour_window.py --base http://127.0.0.1:8001 [--width 1440 --height 900] [--shots DIR] It needs Playwright and a running site. It checks that every step settles, that no picture or script fails to load, that no page error is raised, that the card sits inside the stage and clear of every highlight (a card may sit on a highlight that wraps the whole page), and that Exit hands control back to the page. With --shots it saves the settled frame of every step. It reads the site's own tour pages only; nothing is written anywhere.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_tour_window.py --help
 ```
 
 ## `scripts/chunk_cases.py`

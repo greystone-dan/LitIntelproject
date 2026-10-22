@@ -241,10 +241,11 @@ def test_tour_makes_no_outside_or_ai_calls():
     assert "openai" not in source.lower() and "XMLHttpRequest" not in source
 
 
-def test_explorer_and_workbench_carry_the_tour():
+def test_explorer_and_workbench_carry_the_tour_button():
+    # the tour now plays in the recorded window (tests/test_tour_window.py); the old live tour is no longer put on a page
     for html in (routes._data_explorer_page_html(), workbench_page_html()):
-        assert html.count("/site-tour.js") == 1 and html.count("/site-tour.css") == 1
-    assert inject_site_tour(inject_site_tour("<head></head><body></body>")).count("/site-tour.js") == 1
+        assert html.count("/tour-window.js") == 1 and "/site-tour.js" not in html
+    assert inject_site_tour(inject_site_tour("<head></head><body></body>")).count("/tour-window.js") == 1
 
 
 def test_about_page_has_the_tour_button():

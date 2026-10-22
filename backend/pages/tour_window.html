@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iLIT site tour</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:wght@500;600&display=swap">
+<style>
+/* The recorded tour: the old live tour's stylesheet runs inside a fixed 1440x900 stage that scales to fit. One slim bar under it holds the note. Cream everywhere, so there are no dark side bars. */
+:root{--cream:#f1efe8;--ink:#202522;--ink2:#5f6863;--line:#d8d5ca;--paper:#fffef9;--gold:#8a6418;--gold-bg:#f8f0dc;--teal:#176c68;color-scheme:light}
+html,body{height:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;overflow:hidden}
+#app{position:absolute;inset:0;display:flex;flex-direction:column;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+#vp{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:var(--cream)}
+#box{position:relative;overflow:hidden;background:var(--cream)}
+#stage{position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;overflow:hidden;background:var(--cream)}
+#stage img.pg{position:absolute;left:0;top:0;width:1440px;height:900px;opacity:0;pointer-events:none;user-select:none}
+#stage img.pg.on{opacity:1}
+#hot{position:absolute;border:0;background:transparent;cursor:pointer;border-radius:6px;padding:0}
+#hot:hover,#hot:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+#hot[hidden]{display:none}
+#tour{position:absolute;inset:0}
+#tour[hidden]{display:none}
+.ilit-tour{position:absolute!important;inset:0}
+.ilit-tour-card{width:400px!important;max-height:780px!important}
+.ilit-tour-card.large{width:520px!important}
+.ilit-tour-dock{max-width:1416px!important}
+.ilit-tour-dim{position:absolute!important}
+.ilit-tour-card .ilit-tour-btn{margin-top:4px}
+#bar{flex:0 0 auto;display:flex;align-items:center;gap:12px;min-height:38px;padding:4px 14px;background:var(--cream);font-size:13px;color:var(--ink2)}
+#bar .msg{flex:1;min-width:0}
+#bar .msg.note{background:var(--gold-bg);color:#5c4510;border-left:3px solid var(--gold);padding:4px 10px}
+#bar button{min-height:32px;padding:4px 12px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font:600 13px "IBM Plex Sans",system-ui,sans-serif;cursor:pointer}
+#bar button:hover{border-color:var(--ink)}
+#bar button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+#list{position:absolute;inset:0;bottom:38px;background:var(--cream);overflow:auto;padding:18px 22px;display:none;z-index:50}
+#list.on{display:block}
+#list h3{margin:0 0 4px;font:600 22px "Newsreader",Georgia,serif}
+#list p{margin:0 0 12px;color:var(--ink2);max-width:90ch}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);padding:6px 8px;border-bottom:2px solid var(--ink)}
+.tbl td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr.row{cursor:pointer}.tbl tr.row:hover{background:#e9e6db}
+.tbl td:first-child{width:34px;font-variant-numeric:tabular-nums;color:var(--ink2)}
+.tbl .flag{background:var(--gold-bg);color:#5c4510;border-left:3px solid var(--gold);padding:2px 8px;display:block}
+.tblw{overflow-x:auto}
+@media (max-width:640px){#bar .hide-s{display:none}}
+/* iLit site tour. Colours match the site (cream surface, ink buttons, rust accents). */
+.ilit-tour{position:fixed;inset:0;z-index:900;pointer-events:none;font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;color:#202522}
+/* The page stays usable underneath: a light shade, and a clear border round what the step is about. */
+.ilit-tour-block{position:fixed;inset:0;pointer-events:auto;cursor:default;background:transparent}   /* nothing under the tour takes a click while it runs */
+.ilit-tour.explore .ilit-tour-block{pointer-events:none}   /* an explore step: the page below can be scrolled and clicked (navigation is blocked in site_tour.js) */
+.ilit-tour-dim{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .3s ease}
+.ilit-tour-dim path{fill:rgba(32,37,34,.14)}
+.ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:3px solid #176c68;border-radius:8px;box-shadow:0 0 0 4px rgba(23,108,104,.16);pointer-events:none}
+.ilit-tour.moving .ilit-tour-ring{transition:transform .55s cubic-bezier(.45,0,.2,1),width .55s ease,height .55s ease}   /* glides between steps, follows scrolling instantly */
+.ilit-tour-cursor{position:fixed;left:0;top:0;z-index:1200;width:26px;height:26px;margin:-3px 0 0 -4px;opacity:0;pointer-events:none;transition-property:transform,opacity;transition-duration:.6s,.2s;transition-timing-function:cubic-bezier(.45,0,.2,1),ease;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.ilit-tour-cursor.on{opacity:1}
+.ilit-tour-cursor::after{content:"";position:absolute;left:-7px;top:-7px;width:22px;height:22px;border-radius:50%;border:2px solid #176c68;opacity:0;transform:scale(.4)}
+.ilit-tour-cursor.press::after{animation:ilit-tour-press .45s ease-out}
+@keyframes ilit-tour-press{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.6)}}
+/* The speech card: it sits beside what it explains and glides with it. */
+.ilit-tour-card{position:fixed;left:0;top:0;z-index:1100;box-sizing:border-box;width:min(400px,calc(100vw - 28px));max-height:calc(100vh - 120px);overflow:auto;padding:18px 20px 18px;border:1px solid #cfd8d4;border-left:4px solid #176c68;border-radius:8px;background:#fffef9;box-shadow:0 14px 34px rgba(32,37,34,.24);pointer-events:auto;outline:none}
+.ilit-tour-card{transition:transform .5s cubic-bezier(.45,0,.2,1)}   /* it moves only when it must, and then glides */
+.ilit-tour-card{transition:none}   /* no gliding or fading: on Next the card swaps in place */
+.ilit-tour-kicker{color:#176c68;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ilit-tour-title{margin:5px 0 0;font:600 23px/1.2 "Newsreader",Georgia,serif;color:#202522}
+.ilit-tour-text{margin:9px 0 0;font-size:16.5px;line-height:1.55;color:#202522}
+.ilit-tour-text:empty{display:none}
+.ilit-tour-extra{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:12px}
+.ilit-tour-extra:empty{display:none}
+.ilit-tour-writes{padding:7px 10px;border-left:3px solid #8a6418;background:#f8f0dc;font-size:13px;color:#5c4510}
+/* The control bar: always in the same place, so the mouse can rest on Next. */
+.ilit-tour-dock{position:fixed;left:50%;bottom:18px;z-index:1100;display:flex;align-items:center;gap:8px;box-sizing:border-box;max-width:calc(100vw - 24px);padding:9px 10px 9px 18px;transform:translateX(-50%);border:1px solid #d8d5ca;border-radius:10px;background:#fffef9;box-shadow:0 10px 28px rgba(32,37,34,.25);pointer-events:auto}
+.ilit-tour-where{display:flex;flex-direction:column;gap:5px;min-width:150px;margin-right:8px}
+.ilit-tour-count{font-size:13px;color:#5f6863;white-space:nowrap}
+.ilit-tour-bar{width:150px;height:4px;border-radius:2px;background:#e6e3d8;overflow:hidden}
+.ilit-tour-bar i{display:block;height:100%;background:#176c68;transition:width .25s ease}
+.ilit-tour-x{flex:0 0 auto;height:34px;margin-left:2px;padding:0 10px;border:0;border-radius:5px;background:transparent;color:#5f6863;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer}
+.ilit-tour-x:hover{background:#f1efe8;color:#202522}
+.ilit-tour-btn{min-height:40px;padding:7px 16px;border:1px solid #d8d5ca;border-radius:6px;background:#fff;color:#202522;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
+.ilit-tour-btn:hover:not(:disabled){border-color:#202522}
+.ilit-tour-btn:disabled{opacity:.45;cursor:default}
+.ilit-tour-btn.primary{min-width:96px;border-color:#202522;background:#202522;color:#fff}
+.ilit-tour-dock.pending .ilit-tour-btn.primary{opacity:.55}
+.ilit-tour-btn.quiet{border-color:transparent;background:transparent;color:#5f6863;font-weight:500}
+.ilit-tour-btn.quiet:hover:not(:disabled){color:#202522;text-decoration:underline}
+.ilit-tour-btn.action{border-color:#176c68;color:#176c68}
+.ilit-tour-btn[hidden]{display:none}
+.ilit-tour-btn:focus-visible,.ilit-tour-x:focus-visible,.ilit-tour-start:focus-visible{outline:2px solid #315d8d;outline-offset:2px}
+.ilit-tour-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ilit-tour-start{display:inline-flex;align-items:center;gap:8px;min-height:42px;margin:16px 0 0;padding:9px 18px;border:1px solid #202522;border-radius:6px;background:#202522;color:#fff;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
+.ilit-tour-start:hover{background:#a4412b;border-color:#a4412b}
+.ilit-tour-start.alt{margin-top:14px;background:#fff;color:#202522;text-decoration:none}
+.ilit-tour-start.alt:hover{background:#a4412b;color:#fff}
+.ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
+/* Phones: the bar is two rows (progress on top, buttons below) so Next and Exit tour are never pushed off the right edge. */
+@media (prefers-reduced-motion:reduce){.ilit-tour-bar i,.ilit-tour-cursor,.ilit-tour.moving .ilit-tour-ring,.ilit-tour-card,.ilit-tour-dim{transition:none}.ilit-tour-cursor.press::after{animation:none}}
+@media print{.ilit-tour{display:none}}
+html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */
+html.ilit-tour-on body{padding-bottom:120px}   /* room to lift the end of a page above the control bar */
+html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}   /* the whole reader fits above the control bar, so its ring goes right round it */
+html.ilit-tour-on .la-modal{padding-bottom:96px}   /* a dialog's buttons stay clear of the control bar */
+html.ilit-tour-on .la-modal{justify-content:flex-start;padding-left:24px}html.ilit-tour-on .la-dialog{width:min(980px,calc(100vw - 480px))}   /* and the dialog leaves room beside it for the card */
+/* The tour shows the plain reader: the Experimental "Whose position" bar is left out of every step. */
+html.ilit-tour-on [data-pos-bar]{display:none!important}
+/* the "Find the unit" panel is a developer tool: it never shows during the tour (Daniel, 10-21) */
+html.ilit-tour-on #unitSearchPanel{display:none!important}
+.ilit-tour-title:empty{display:none}
+/* a larger card for a step that is mostly words (Live analysis, 1 of 3) */
+.ilit-tour-card.large{width:min(520px,calc(100vw - 28px))}
+/* an explore step after the visitor has started using the page: just the hint, low on the screen */
+.ilit-tour-card.hint{width:min(280px,calc(100vw - 28px));padding:11px 16px}
+.ilit-tour-card.hint .ilit-tour-kicker,.ilit-tour-card.hint .ilit-tour-title{display:none}
+.ilit-tour-card.hint .ilit-tour-text{margin:0;font-size:15px}
+/* Card text: a blank line in a step's words starts a new paragraph (Live analysis, the FC Activity page). */
+.ilit-tour-text{white-space:pre-line}
+.ilit-tour-text strong{font-weight:700}
+/* Opening the filter panel is a short slide, not a snap (the tour's pointer presses Advanced first). */
+html.ilit-tour-on #searchPanel.sp-adv #advancedSearchOptions{animation:ilit-tour-open .5s cubic-bezier(.3,.7,.2,1) both}
+@keyframes ilit-tour-open{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html.ilit-tour-on #searchPanel.sp-adv #advancedSearchOptions{animation:none}}
+
+html .ilit-tour-rings{transition:opacity .18s ease}
+.ilit-tour-dim{transition:opacity .18s ease!important}
+#typer{position:absolute;display:none;align-items:center;box-sizing:border-box;white-space:pre;overflow:hidden;pointer-events:none}
+#typer.on{display:flex}
+#typer i{display:inline-block;width:1px;height:1.15em;margin-left:1px;background:currentColor;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.embed #list,.embed #listBtn{display:none}
+</style>
+</head>
+<body>
+<div id="app">
+ <div id="vp"><div id="box"><div id="stage">
+   <img class="pg on" id="pgA" alt=""><img class="pg" id="pgB" alt="">
+   <button id="hot" type="button" aria-label="Take the tour" hidden></button>
+   <div id="typer"></div>
+   <div id="tour" hidden>
+    <div class="ilit-tour" id="root">
+     <div class="ilit-tour-block"></div>
+     <svg class="ilit-tour-dim" width="1440" height="900" aria-hidden="true"><path id="dim" fill-rule="evenodd"></path></svg>
+     <div class="ilit-tour-rings" id="rings"></div>
+     <div class="ilit-tour-cursor" id="cursor" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 2l15 11.2-6.6 1.1 3.9 7.3-2.9 1.5-3.9-7.4L4 20.7z" fill="#202522" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+     <div class="ilit-tour-card" id="card" role="dialog" aria-label="Site tour" tabindex="-1"><div class="ilit-tour-kicker" id="kick"></div><h2 class="ilit-tour-title" id="ttl"></h2><p class="ilit-tour-text" id="txt"></p><div class="ilit-tour-extra" id="ext"></div></div>
+     <div class="ilit-tour-dock" id="dock" role="toolbar" aria-label="Tour controls"><div class="ilit-tour-where"><span class="ilit-tour-count" id="cnt"></span><div class="ilit-tour-bar"><i id="fill"></i></div></div><button class="ilit-tour-btn" id="back" type="button">Back</button><button class="ilit-tour-btn quiet" id="skip" type="button">Skip section</button><button class="ilit-tour-btn primary" id="next" type="button">Next</button><button class="ilit-tour-x" id="exit" type="button">&times; Exit tour</button></div>
+    </div>
+   </div>
+ </div></div></div>
+ <div id="list"><h3>Steps and notes</h3><p>Every step plays from one data file (tour_data.json): its card text, highlight boxes, card position, pointer path and captured screens. Yellow notes mark wording that cannot work in a window with no clicking or scrolling. Click a row to jump to it.</p><div class="tblw"><table class="tbl"><thead><tr><th>#</th><th>Step</th><th>Section</th><th>Pointer clicks</th><th>Note</th></tr></thead><tbody id="tb"></tbody></table></div></div>
+ <div id="bar"><span class="msg" id="msg"></span><button id="listBtn" type="button">Steps and notes</button></div>
+</div>
+<script>
+const $=id=>document.getElementById(id),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const EMBED=new URLSearchParams(location.search).get('embed')==='1';if(EMBED)document.documentElement.classList.add('embed');
+function closeTour(){try{parent.postMessage({ilitTour:'close'},location.origin)}catch(e){}}
+let CFG,MS,T,cur=-1,run=0,ptr=null,inTour=false,cardShown=false,ringSig='';
+const A=$('pgA'),B=$('pgB');let front=A,frameNow='';
+function fit(){const vp=$('vp'),k=Math.min(vp.clientWidth/1440,vp.clientHeight/900);$('box').style.width=1440*k+'px';$('box').style.height=900*k+'px';$('stage').style.transform='scale('+k+')';return k}
+function setFrame(src,ms){if(src===frameNow)return;frameNow=src;const back=front===A?B:A;back.src=src;back.style.transition='opacity '+ms+'ms ease';front.style.transition='opacity '+ms+'ms ease';back.classList.add('on');front.classList.remove('on');front=back}
+function holes(rs){let d='M0 0H1440V900H0Z';rs.forEach(h=>{d+='M'+h.x+' '+h.y+'h'+h.w+'v'+h.h+'h'+(-h.w)+'Z'});return d}
+let ringTimer;
+function applyRings(rs,glide){const box=$('rings'),sig=JSON.stringify(rs);
+ if(glide&&sig!==ringSig){const root=$('root');root.classList.add('moving');clearTimeout(setRings.t);setRings.t=setTimeout(()=>root.classList.remove('moving'),T.ringMs+100)}
+ else if(!glide)$('root').classList.remove('moving');
+ ringSig=sig;
+ while(box.children.length<rs.length){const r=document.createElement('div');r.className='ilit-tour-ring';box.appendChild(r)}
+ [...box.children].forEach((r,k)=>{const h=rs[k];if(!h){r.style.display='none';return}r.style.display='block';r.style.transform='translate('+h.x+'px,'+h.y+'px)';r.style.width=h.w+'px';r.style.height=h.h+'px'});
+ $('dim').setAttribute('d',rs.length?holes(rs):'')}
+/* jump: the page underneath has changed (a new step), so the old box would sit on the wrong place: it fades out and the new one fades in where it belongs. Inside a step it glides, as in the live tour. */
+function setRings(rs,jump){clearTimeout(ringTimer);const rg=$('rings'),dm=document.querySelector('.ilit-tour-dim'),sig=JSON.stringify(rs);
+ if(jump&&ringSig&&ringSig!=='[]'&&sig!==ringSig){rg.style.opacity=0;dm.style.opacity=0;ringTimer=setTimeout(()=>{applyRings(rs,false);rg.style.opacity=1;dm.style.opacity=1},T.ringFadeMs+20)}
+ else{applyRings(rs,true);rg.style.opacity=1;dm.style.opacity=1}}
+function moveCard(x,y,snap){const c=$('card');if(snap||!cardShown){c.style.transition='none';c.style.transform='translate('+x+'px,'+y+'px)';c.getBoundingClientRect();c.style.transition='';cardShown=true}else c.style.transform='translate('+x+'px,'+y+'px)'}
+function setCard(m,pending){const c=$('card');
+ if(!pending){$('kick').textContent=m.kicker;$('ttl').textContent=m.title;
+  const tx=$('txt');tx.textContent='';m.text.split('**').forEach((p,k)=>{if(!p)return;if(k%2){const b=document.createElement('strong');b.textContent=p;tx.appendChild(b)}else tx.appendChild(document.createTextNode(p))});
+  const e=$('ext');e.textContent='';(m.buttons||[]).forEach(b=>{const x=document.createElement('button');x.type='button';x.className='ilit-tour-btn action';x.textContent=b.label;x.onclick=()=>{if(b.action==='done')finish()};e.appendChild(x)});
+  c.classList.toggle('large',!!m.large);
+  let y=m.card.y;if(m.card.anchor==='bottom'){const floor=900-18-$('dock').offsetHeight-4;y=Math.max(14,floor-c.offsetHeight-14)}
+  moveCard(m.card.x,y,true);
+  $('cnt').textContent='Step '+m.step+' of '+MS.length;$('fill').style.width=Math.round(m.step/MS.length*100)+'%';
+  $('back').disabled=m.step===1;$('next').textContent=m.step===MS.length?'Done':'Next';$('skip').style.visibility=m.skipVisible?'':'hidden';
+  $('msg').textContent=m.note||CFG.recorded||'';$('msg').classList.toggle('note',!!m.note)}
+ c.classList.toggle('gone',pending);$('dock').classList.toggle('pending',pending);$('next').disabled=pending}
+function nextBox(){const k=fit(),sr=$('stage').getBoundingClientRect(),r=$('next').getBoundingClientRect();return{x:(r.left-sr.left)/k+Math.min(16,r.width/2/k),y:(r.top-sr.top)/k+r.height/2/k}}
+async function glide(p,tok){const c=$('cursor');
+ if(!ptr){const n=nextBox();ptr=n;c.style.transition='none';c.style.transform='translate('+n.x+'px,'+n.y+'px)';c.getBoundingClientRect();c.style.transition='';}
+ c.classList.add('on');
+ const dist=Math.hypot(p.x-ptr.x,p.y-ptr.y),ms=dist<4?0:Math.round(Math.min(T.pointerMaxMs,Math.max(T.pointerMinMs,dist*T.pointerMsPerPx)));
+ c.style.transitionDuration=ms+'ms, .2s';c.style.transform='translate('+p.x+'px,'+p.y+'px)';ptr={x:p.x,y:p.y};
+ await sleep(ms?ms+T.pointerDwellMs:0);return tok===run}
+async function press(){const c=$('cursor');c.classList.remove('press');c.getBoundingClientRect();c.classList.add('press');await sleep(T.pressMs)}
+function hideCursor(){$('cursor').classList.remove('on');ptr=null}
+async function typeText(a,tok){const f=a.field,ty=$('typer'),bw=parseFloat(f.bw)||0;
+ Object.assign(ty.style,{left:f.x+bw+'px',top:f.y+bw+'px',width:f.w-2*bw+'px',height:f.h-2*bw+'px',background:/rgba\(0, 0, 0, 0\)|transparent/.test(f.bg)?'#fff':f.bg,font:f.weight+' '+f.size+' '+f.font,color:f.color,paddingLeft:f.pl,borderRadius:f.rad});
+ ty.classList.add('on');
+ for(let i=0;i<=a.text.length;i++){if(tok!==run)return false;ty.textContent=a.text.slice(0,i);const c=document.createElement('i');ty.appendChild(c);await sleep(i?T.typeMs:300)}
+ return true}
+function clearTyper(){$('typer').classList.remove('on');$('typer').textContent=''}
+function reveal(m,jump){clearTyper();setFrame(m.final,T.stepFadeMs);setRings(m.rings,jump);setCard(m,false);if(!m.cursorStays)hideCursor();inTour=true}
+function showQuiet(i){run++;cur=i;reveal(MS[i],true)}
+const pre={};function preload(src){return pre[src]||(pre[src]=new Promise(r=>{const im=new Image();im.onload=()=>(im.decode?im.decode().catch(()=>{}):Promise.resolve()).then(r);im.onerror=r;im.src=src}))}
+async function seqFrames(a,tok){await Promise.all(a.frames.map(preload));if(a.noRings)setRings([],true);const c=$('cursor');
+ for(let k=0;k<a.frames.length;k++){if(tok!==run)return false;setFrame(a.frames[k],0);
+  const q=a.cur&&a.cur[k];if(q){if(!ptr){c.style.transition='none';c.style.transform='translate('+q.x+'px,'+q.y+'px)';c.getBoundingClientRect();c.style.transition=''}c.classList.add('on');c.style.transitionDuration=a.delays[k]+'ms, .2s';c.style.transform='translate('+q.x+'px,'+q.y+'px)';ptr={x:q.x,y:q.y}}
+  if(a.pressAt===k){c.classList.remove('press');c.getBoundingClientRect();c.classList.add('press')}
+  await sleep(a.delays[k])}return true}
+async function scrollFrames(a,tok){await Promise.all(a.frames.map(preload));for(const f of a.frames){if(tok!==run)return false;setFrame(f,0);await sleep(a.ms)}return true}
+async function play(i){const tok=++run,m=MS[i];setCard(MS[cur]||m,true);
+ let faded=false,first=true,changed=false,afterPress=false;
+ for(const a of m.actions){if(tok!==run)return;
+  if(a.do==='frame'){changed=true;if(afterPress)setRings([],true);setFrame(a.src,faded?T.stepFadeMs:T.pageFadeMs);if(!faded){faded=true;await sleep(T.pageFadeMs)}else clearTyper()}
+  else if(a.do==='light'){setRings(a.rings,first);first=false;}
+  else if(a.do==='scroll'){if(!await scrollFrames(a,tok))return}
+  else if(a.do==='move'){if(!await glide(a,tok))return}
+  else if(a.do==='type'){if(!await typeText(a,tok))return}
+  else if(a.do==='press'){await press()}
+  else if(a.do==='seq'){if(!await seqFrames(a,tok))return}
+  afterPress=a.do==='press'}
+ if(tok!==run)return;
+ if(!m.actions.length){setFrame(m.final,T.pageFadeMs);await sleep(T.pageFadeMs)}
+ if(tok!==run)return;cur=i;reveal(m,!m.actions.length||changed)}
+function go(d){const i=cur+d;if(i<0)return;if(i>=MS.length){finish();return}d>0?play(i):showQuiet(i)}
+function skipSection(){const sec=MS[cur].section;let i=cur+1;while(i<MS.length&&MS[i].section===sec)i++;if(i<MS.length)play(i)}
+function startTour(){$('hot').hidden=true;$('tour').hidden=false;cardShown=false;ringSig='';cur=0;run++;const m=MS[0];frameNow='';setFrame(m.final,0);setRings([]);reveal(m,false)}
+function backToSite(frame){run++;inTour=false;clearTyper();$('tour').hidden=true;hideCursor();cur=-1;setFrame(frame,200);const b=CFG.intro.button;Object.assign($('hot').style,{left:b.x+'px',top:b.y+'px',width:b.w+'px',height:b.h+'px'});$('hot').hidden=false;
+ $('msg').textContent='The tour is closed. This is the live Home page: Take the tour plays it again.';$('msg').classList.remove('note')}
+function finish(){if(EMBED){closeTour();return}backToSite(MS[MS.length-1].final)}
+function exitTour(){if(EMBED){closeTour();return}backToSite(CFG.intro.frame)}
+function jump(i){$('list').classList.remove('on');if(!inTour)startTour();showQuiet(i)}
+async function boot(){
+ const d=await (await fetch('tour_data.json')).json();CFG=d.config;MS=d.moments;T=CFG.timing;
+ const V=CFG.version?'?v='+CFG.version:'';   // a re-capture bumps the version, so the browser's day-long picture cache is skipped
+ const U=x=>x?x+V:x;CFG.intro.frame=U(CFG.intro.frame);MS.forEach(m=>{m.final=U(m.final);m.actions.forEach(a=>{if(a.src)a.src=U(a.src);if(a.frames)a.frames=a.frames.map(U)})});
+ const imgs=new Set([CFG.intro.frame]);MS.forEach(m=>{imgs.add(m.final);m.actions.forEach(a=>{if(a.src)imgs.add(a.src)})});imgs.forEach(s=>{const i=new Image();i.src=s});
+ $('tb').innerHTML=MS.map((m,i)=>'<tr class="row" tabindex="0" data-i="'+i+'"><td>'+m.step+'</td><td>'+m.title.replace(/</g,'&lt;')+'</td><td>'+m.section+'</td><td>'+m.actions.filter(a=>a.do==='press').length+(m.actions.some(a=>a.do==='type')?' + typing':'')+'</td><td>'+(m.note?'<span class="flag">'+m.note+'</span>':'')+'</td></tr>').join('');
+ $('tb').onclick=e=>{const r=e.target.closest('tr');if(r)jump(+r.dataset.i)};
+ $('tb').onkeydown=e=>{if(e.key==='Enter'){const r=e.target.closest('tr');if(r)jump(+r.dataset.i)}};
+ $('listBtn').onclick=()=>$('list').classList.toggle('on');
+ $('next').onclick=()=>go(1);$('back').onclick=()=>go(-1);$('skip').onclick=skipSection;$('exit').onclick=exitTour;$('hot').onclick=startTour;
+ document.addEventListener('keydown',e=>{if(!inTour)return;if(e.key==='Escape'){e.preventDefault();exitTour()}else if(e.key==='ArrowRight'&&!$('next').disabled)go(1);else if(e.key==='ArrowLeft'&&!$('back').disabled)go(-1)});
+ new ResizeObserver(fit).observe($('vp'));fit();
+ frameNow='';setFrame(CFG.intro.frame,0);backToSite(CFG.intro.frame);$('msg').textContent='Pre-captured from www.ilit.ca on 22 Oct. Press Take the tour on the home page to start.';
+ if(EMBED){startTour();$('msg').textContent=CFG.recorded||'';window.focus()}
+ const q=new URLSearchParams(location.search).get('step');if(q){startTour();showQuiet(+q-1)}
+}
+boot();
+</script>
+</body>
+</html>

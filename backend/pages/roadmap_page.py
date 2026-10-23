@@ -50,7 +50,7 @@ PLACE = {
 	"accessibility": "live", "french-ui": "planned", "hardening": "live",
 	"internal-documents": "planned", "agency-repositories": "planned", "handling-marks": "planned",
 	"argument-identification": "live", "memo-check": "experimental", "institutional-memory": "planned", "deidentify": "live",
-	"citation-treatment": "live", "citation-enhancements": "planned", "discussion-units": "live", "whose-position": "live",
+	"citation-treatment": "live", "citation-enhancements": "planned", "discussion-units": "live", "whose-position": "experimental",
 	"themes": "experimental", "authority-trends": "files", "neighbourhoods": "experimental", "fingerprints": "experimental",
 	"decision-maker-insights": "live", "case-at-a-glance": "experimental", "passage-search": "experimental", "show-your-work": "planned",
 	"accounts": "planned", "teams": "planned", "annotations": "experimental", "alerts": "experimental", "export": "live", "history": "planned",
@@ -317,7 +317,7 @@ def _argument() -> str:
 
 	out = (
 		'<p class="lede">A preview of work in progress. Each paragraph of a decision would show whose position it reports, so you can tell the Court’s own reasoning from a party’s argument, and in time check a draft argument against how the same issues were decided.</p>'
-		'<div class="note"><strong>Preview.</strong> The reader preview “Show whose position” is live. The accuracy figures here come from earlier small tests graded by Claude, not by lawyers, and are being re-measured.</div>'
+		'<div class="note"><strong>Preview.</strong> The reader preview “Show whose position” is experimental: it appears only when the Experimental switch is on. The accuracy figures here come from earlier small tests graded by Claude, not by lawyers, and are being re-measured.</div>'
 	)
 	for anchor, heading, paragraphs in _SECTIONS:
 		items, text = [], ""

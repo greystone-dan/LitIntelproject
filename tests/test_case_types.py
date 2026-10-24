@@ -240,6 +240,14 @@ def test_motion_to_intervene_is_a_procedural_matter() -> None:
     assert classify(text, court="FCA", title="Canada (Public Safety) v. Smith").primary_type == "court_procedure_only"
 
 
+@pytest.mark.parametrize(
+    "wording", ["is in contempt of court", "contempt"]
+)
+def test_contempt_wording_matches_the_procedural_type_cue(wording: str) -> None:
+    procedure = next(case_type for case_type in CASE_TYPES if case_type.key == "court_procedure_only")
+    assert any(pattern.search(wording) for pattern in procedure.compiled_cues)
+
+
 def test_judicial_review_of_a_prra_decision_is_a_prra_case() -> None:
     text = decision(
         "The applicant challenges a decision by a Senior Immigration Officer rejecting his pre-removal risk assessment "

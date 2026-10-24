@@ -34,6 +34,26 @@ def test_stage_order_exposes_chunking_before_metadata_and_citation_layers():
     assert case_processing.STAGE_ORDER[3:] == ("outcome", "case_citations", "statutes", "tags_v3")
 
 
+def test_empty_stage_order_runs_no_stages_and_none_uses_the_default(monkeypatch):
+    calls = []
+    stages = (
+        ("first", lambda _session, _case: calls.append("first") or 1),
+        ("second", lambda _session, _case: calls.append("second") or 2),
+    )
+    monkeypatch.setattr(case_processing, "STAGES", stages)
+    monkeypatch.setattr(case_processing, "STAGE_ORDER", ("first", "second"))
+
+    class ProcessingSession:
+        def scalar(self, _statement):
+            return SimpleNamespace(id=7)
+
+    session = ProcessingSession()
+    assert case_processing.process_case_in_five_layers(session, 7, stage_order=[]) == {}
+    assert calls == []
+    assert case_processing.process_case_in_five_layers(session, 7, stage_order=None) == {"first": 1, "second": 2}
+    assert calls == ["first", "second"]
+
+
 def test_v3_tag_stage_replaces_only_v3_rows_and_records_occurrence_count(monkeypatch):
     class TagSession(FakeSession):
         def __init__(self):

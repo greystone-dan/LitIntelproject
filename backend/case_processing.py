@@ -170,7 +170,7 @@ def process_case_in_five_layers(
         raise ValueError(f"Case {case_id} not found")
 
     stage_map: dict[str, StageRunner] = dict(STAGES)
-    selected = list(stage_order or STAGE_ORDER)
+    selected = list(STAGE_ORDER if stage_order is None else stage_order)
     invalid = [name for name in selected if name not in stage_map]
     if invalid:
         raise ValueError(f"Unknown stage(s): {', '.join(invalid)}")

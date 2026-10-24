@@ -58,6 +58,33 @@ PAGE_RENDERERS = [
 ]
 
 
+def test_citation_pass_markup_has_valid_javascript_targets():
+    html = citation_pass_page_html()
+    assert r'\"' not in html
+
+    script_match = re.search(r"<script\b[^>]*>(.*?)</script\b[^>]*>", html, re.IGNORECASE | re.DOTALL)
+    assert script_match is not None
+    script = script_match.group(1)
+
+    markup_ids = set(re.findall(r'\bid="([^"]+)"', html))
+    javascript_ids = set(re.findall(r"document\.getElementById\('([^']+)'\)", script))
+    assert javascript_ids <= markup_ids
+
+    selectors = re.findall(r"""querySelector(?:All)?\('([^']+)'""", script)
+    javascript_classes = {
+        class_name
+        for selector in selectors
+        for class_name in re.findall(r"\.([a-z][\w-]*)", selector)
+    }
+    markup_classes = {
+        class_name
+        for class_attribute in re.findall(r'class="([^"]*)"', html)
+        for class_name in re.findall(r"\b[a-z][\w-]*\b", class_attribute.split("${")[0])
+    }
+    markup_classes.update(re.findall(r"""['"]\s*([a-z][\w-]*)\s*['"]""", script))
+    assert javascript_classes <= markup_classes
+
+
 @pytest.fixture(scope="module")
 def node_binary():
     node = shutil.which("node")

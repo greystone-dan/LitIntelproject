@@ -380,13 +380,13 @@ def _rank_tags_by_rarity_and_frequency(
 	from functools import lru_cache
 
 	# Count total cases for fire rate calculation
-	total_cases = session.query(func.count(distinct(CaseTag.case_id))).scalar() or 1
+	total_cases = session.query(func.count(func.distinct(CaseTag.case_id))).scalar() or 1
 
 	# Calculate fire rate for each tag type (category, value)
 	@lru_cache(maxsize=10000)
 	def get_fire_rate(category: str, value: str) -> float:
 		cases_with_tag = (
-			session.query(func.count(distinct(CaseTag.case_id)))
+			session.query(func.count(func.distinct(CaseTag.case_id)))
 			.where(
 				CaseTag.category == category,
 				CaseTag.value == value,

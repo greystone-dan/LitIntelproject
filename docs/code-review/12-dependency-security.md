@@ -116,12 +116,12 @@ to distinguish the earlier lead from the vulnerable findings.
 
 ### `pypdf==4.2.0`
 
-GitHub-reviewed records below all include version ranges with a floor above
-`4.2.0`; therefore the pin is in each affected range. Advisories are grouped
-by the first fixed release; the short weakness descriptions summarize the
-advisory titles and impacts.
+Each listed GitHub-reviewed record has an affected range of `<` its first
+patched version, which includes `4.2.0`. Records are grouped by the first
+patched release; the short weakness descriptions summarize the advisory
+impacts.
 
-| Fixed in | Verified advisories (GHSA / CVE) and weakness |
+| First fixed (affected range is `<` this version) | Verified advisories (GHSA / CVE) and weakness |
 | --- | --- |
 | `6.21.2` | [GHSA-6c7f-9265-g8fw / CVE-2026-115572](https://github.com/advisories/GHSA-6c7f-9265-g8fw), repeated references to a missing object cause long runtimes; [GHSA-jr96-gvgh-j3r4 / CVE-2026-115585](https://github.com/advisories/GHSA-jr96-gvgh-j3r4), repeated malformed cross-reference streams cause long runtimes; [GHSA-gmh7-3g9r-mjh5 / CVE-2026-115580](https://github.com/advisories/GHSA-gmh7-3g9r-mjh5), large cross-reference limits cause long runtimes. |
 | `6.21.1` | [GHSA-5hx5-vpf9-5wcv / CVE-2026-113786](https://github.com/advisories/GHSA-5hx5-vpf9-5wcv), crafted `/DCTDecode` data can invoke arbitrary image parsers; advisory says optional Pillow must be installed for impact. |
@@ -143,11 +143,23 @@ advisory titles and impacts.
 | `6.13.0` | [GHSA-m2v9-299j-rv96 / CVE-2026-54531](https://github.com/advisories/GHSA-m2v9-299j-rv96) and [GHSA-52x6-gq3r-vpf4 / CVE-2026-54530](https://github.com/advisories/GHSA-52x6-gq3r-vpf4), writer outline/article or layout-mode font paths can loop. |
 | `6.12.2` | [GHSA-j543-4vmf-qm7v / CVE-2026-49461](https://github.com/advisories/GHSA-j543-4vmf-qm7v), self-referencing form XObjects can consume memory; [GHSA-5hgr-hg42-57jg / CVE-2026-49460](https://github.com/advisories/GHSA-5hgr-hg42-57jg), PNG predictor streams can take long to decode. |
 | `6.12.1` | [GHSA-wjqc-6w8f-h24c / CVE-2026-48735](https://github.com/advisories/GHSA-wjqc-6w8f-h24c), large XMP metadata can exhaust memory. |
-| `6.12.0` | [GHSA-248m-82v9-q6g6 / CVE-2026-48156](https://github.com/advisories/GHSA-248m-82v9-q6g6), zero-only cross-reference stream widths with large `/Size` cause long runtimes. |
-| `6.10.2` | [GHSA-x284-j5p8-9c5p / CVE-2026-41314](https://github.com/advisories/GHSA-x284-j5p8-9c5p), oversized FlateDecode image dimensions can exhaust memory; [GHSA-4pxv-j86v-mhcw / CVE-2026-41313](https://github.com/advisories/GHSA-4pxv-j86v-mhcw), large trailer size in incremental mode causes long runtimes. |
+| `6.12.0` | [GHSA-248m-82v9-q6g6 / CVE-2026-48156](https://github.com/advisories/GHSA-248m-82v9-q6g6), zero-only cross-reference stream widths with large `/Size` cause long runtimes; [GHSA-cj93-chg6-vgv8 / CVE-2026-48155](https://github.com/advisories/GHSA-cj93-chg6-vgv8), large offsets in layout-mode extraction consume memory. |
+| `6.10.2` | [GHSA-x284-j5p8-9c5p / CVE-2026-41314](https://github.com/advisories/GHSA-x284-j5p8-9c5p), oversized FlateDecode image dimensions can exhaust memory; [GHSA-4pxv-j86v-mhcw / CVE-2026-41313](https://github.com/advisories/GHSA-4pxv-j86v-mhcw), large trailer size in incremental mode causes long runtimes; [GHSA-7gw9-cf7v-778f / CVE-2026-41312](https://github.com/advisories/GHSA-7gw9-cf7v-778f), predictor parameters can cause excessive memory use. |
 | `6.10.1` | [GHSA-jj6c-8h6c-hppx / CVE-2026-41168](https://github.com/advisories/GHSA-jj6c-8h6c-hppx), large cross-reference/object stream size values cause long runtimes. |
 | `6.10.0` | [GHSA-3crg-w4f6-42mx / CVE-2026-40260](https://github.com/advisories/GHSA-3crg-w4f6-42mx), crafted XMP entity declarations can exhaust memory. |
 | `6.9.2` | [GHSA-87mj-5ggw-8qc3 / CVE-2026-33699](https://github.com/advisories/GHSA-87mj-5ggw-8qc3), malformed dictionaries can loop during non-strict recovery. |
+| `6.9.1` | [GHSA-qpxp-75px-xjcp / CVE-2026-33123](https://github.com/advisories/GHSA-qpxp-75px-xjcp), array-based streams can be decoded inefficiently. |
+| `6.8.0` | [GHSA-hqmh-ppp3-xvm7 / CVE-2026-31826](https://github.com/advisories/GHSA-hqmh-ppp3-xvm7), manipulated stream lengths can consume excessive memory. |
+| `6.7.5` | [GHSA-9m86-7pmv-2852 / CVE-2026-28804](https://github.com/advisories/GHSA-9m86-7pmv-2852), inefficient ASCIIHexDecode processing. |
+| `6.7.4` | [GHSA-f2v5-7jq9-h8cg / CVE-2026-28351](https://github.com/advisories/GHSA-f2v5-7jq9-h8cg), RunLengthDecode streams can exhaust memory. |
+| `6.7.3` | [GHSA-x7hp-r3qg-r3cj / CVE-2026-27888](https://github.com/advisories/GHSA-x7hp-r3qg-r3cj), FlateDecode XFA streams can exhaust memory. |
+| `6.7.2` | [GHSA-2rw7-x74f-jg35 / CVE-2026-27628](https://github.com/advisories/GHSA-2rw7-x74f-jg35), circular `/Prev` entries in cross-reference streams can cause infinite loops. |
+| `6.7.1` | [GHSA-9mvc-8737-8j8h / CVE-2026-27026](https://github.com/advisories/GHSA-9mvc-8737-8j8h), malformed FlateDecode streams cause long runtimes; [GHSA-wgvp-vg3v-2xq3 / CVE-2026-27025](https://github.com/advisories/GHSA-wgvp-vg3v-2xq3), large ToUnicode streams consume resources; [GHSA-996q-pr4m-cvgq / CVE-2026-27024](https://github.com/advisories/GHSA-996q-pr4m-cvgq), tree child processing can loop. |
+| `6.6.2` | [GHSA-2q4j-m29v-hq73 / CVE-2026-24688](https://github.com/advisories/GHSA-2q4j-m29v-hq73), crafted outlines/bookmarks can cause infinite loops. |
+| `6.6.0` | [GHSA-4f6g-68pf-7vhv / CVE-2026-22691](https://github.com/advisories/GHSA-4f6g-68pf-7vhv), malformed `startxref` can cause long runtimes; [GHSA-4xc4-762w-m6cg / CVE-2026-22690](https://github.com/advisories/GHSA-4xc4-762w-m6cg), missing `/Root` with large `/Size` can cause long runtimes. |
+| `6.4.0` | [GHSA-m449-cwjh-6pw7 / CVE-2025-66019](https://github.com/advisories/GHSA-m449-cwjh-6pw7), LZWDecode streams can consume excessive memory. |
+| `6.1.3` | [GHSA-jfx9-29x2-rv3j / CVE-2025-62708](https://github.com/advisories/GHSA-jfx9-29x2-rv3j), LZWDecode streams can consume excessive memory; [GHSA-vr63-x8vc-m265 / CVE-2025-62707](https://github.com/advisories/GHSA-vr63-x8vc-m265), DCT inline images without an EOF marker can loop. |
+| `6.0.0` | [GHSA-7hfw-26vp-jp8m / CVE-2025-55197](https://github.com/advisories/GHSA-7hfw-26vp-jp8m), FlateDecode streams can exhaust memory. |
 
 **Reachability:** `backend/resource_limits.py` constructs `PdfReader` over
 uploaded PDF bytes and extracts text. The same helper is used in live analysis
@@ -174,13 +186,18 @@ do not constitute regression tests for each advisory's specially crafted PDF.
 
 Sources: [GitHub-reviewed package query](https://api.github.com/advisories?ecosystem=pip&affects=pypdf&per_page=100);
 [upstream changelog](https://github.com/py-pdf/pypdf/blob/main/CHANGELOG.md);
-[6.21.2 release](https://github.com/py-pdf/pypdf/releases/tag/6.21.2). This is
-the set of affected records individually identified in that query during this
-review; whether it is exhaustive across the entire database is **unverified**.
-Other databases or later records are also **unverified**. The earlier lead
-`CVE-2024-41869` is an Adobe Acrobat/Reader CVE, not a pypdf advisory, and
-`GHSA-4xfr-9xv4-39c3` did not resolve in GitHub's advisory API; neither is
-counted as a pypdf finding.
+[6.21.2 release](https://github.com/py-pdf/pypdf/releases/tag/6.21.2). The
+first query response contained 62 records: the 60 listed above have affected
+ranges `<` their first fixed version; two additional records do not apply to
+4.2.0: [GHSA-wjcc-cq79-p63f / CVE-2023-46250](https://github.com/advisories/GHSA-wjcc-cq79-p63f)
+affects `>=3.7.0, <3.17.0` and is fixed in `3.17.0`, while
+[GHSA-4vvm-4w3v-6mr8 / CVE-2023-36464](https://github.com/advisories/GHSA-4vvm-4w3v-6mr8)
+affects `>=3.1.0, <3.9.0` and is fixed in `3.9.0`. A page-2 probe repeated
+newer results rather than independently confirming pagination, so completeness
+across the entire advisory database is **unverified**. Other databases or later
+records are also **unverified**. The earlier lead `CVE-2024-41869` is an Adobe
+Acrobat/Reader CVE, not a pypdf advisory, and `GHSA-4xfr-9xv4-39c3` did not
+resolve in GitHub's advisory API; neither is counted as a pypdf finding.
 
 ## Other aged pins
 
@@ -205,9 +222,9 @@ manifest. A full current-version or transitive audit was not performed.
    is enabled for untrusted callers.** It has the highest verified severity
    and a request-selected model name reaches model loading. Before an
    owner-approved update, test `tests/test_embedding_providers.py`,
-   `tests/test_local_embeddings.py`, and the local-search tests in
-   `tests/test_api.py`; then perform an offline smoke test with the configured
-   trusted model. Do not test by loading an untrusted model. Whether the live
+   `tests/test_local_embeddings.py`, and the rollout-disabled local-search
+   case in `tests/test_api.py`; then perform an offline smoke test with the
+   configured trusted model. Do not test by loading an untrusted model. Whether the live
    route is externally exposed is **unverified**.
 2. **`python-multipart`: next for parser-level availability and form
    interpretation issues.** After separate approval, run the upload/form tests
@@ -237,5 +254,5 @@ manifest. A full current-version or transitive audit was not performed.
 - `python scripts/check_generated_docs.py` was attempted and could not run
   because `fastapi` and `sqlalchemy` are unavailable in this environment.
 - Local Markdown-link and whitespace checks passed; external sources were
-  checked individually where cited. Secret scanning and CodeQL results are
-  recorded in the PR checks, not asserted here.
+  checked individually where cited. Secret scanning found no secrets. The
+  CodeQL checker skipped analysis because the only change is documentation.

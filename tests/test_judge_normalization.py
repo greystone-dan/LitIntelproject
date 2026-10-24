@@ -169,12 +169,21 @@ def test_fca_before_scc_still_joins_scc_only_cluster():
 	assert len(groups) == 1 and set(groups[0].members) == set(counts)
 
 
-def test_fca_before_cluster_without_court_information_does_not_join():
+def test_fca_before_cluster_without_court_information_still_joins():
 	day = 365
 	counts = {"Alex Sample": 20, "SAMPLE J.A.": 10}
 	spans = {"Alex Sample": (2010 * day, 2020 * day), "SAMPLE J.A.": (1990 * day, 2000 * day)}
 	groups = group_judge_names(counts, spans)
-	assert not any("SAMPLE J.A." in group.members for group in groups)
+	assert len(groups) == 1 and set(groups[0].members) == set(counts)
+
+
+def test_fca_before_non_scc_cluster_without_fc_member_still_joins():
+	day = 365
+	counts = {"Odette Desjardins": 20, "DESJARDINS J.A.": 10}
+	spans = {"Odette Desjardins": (2010 * day, 2020 * day), "DESJARDINS J.A.": (1990 * day, 2000 * day)}
+	courts = {"Odette Desjardins": {"FCA"}, "DESJARDINS J.A.": {"FCA"}}
+	groups = group_judge_names(counts, spans, courts)
+	assert len(groups) == 1 and set(groups[0].members) == set(counts)
 
 
 def test_panel_ignores_sentence_fragments():

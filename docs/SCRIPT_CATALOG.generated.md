@@ -2789,7 +2789,7 @@ Active scripts documented: 200
 
 ## `scripts/scheduled_intake_daemon.py`
 
-**Purpose:** Low-priority scheduled intake of new decisions from A2AJ and court sources. Runs continuously on Daniel's PC, checking for new decisions every 6 hours (A2AJ) or 24 hours (court sources), deduplicating, and importing without interfering with the live site. Designed to be pausable, resume-able, and disable-able. Disable by: - Setting SCHEDULED_INTAKE_ENABLED=false in .env - Renaming script to .disabled
+**Purpose:** Low-priority scheduled discovery of new decisions from A2AJ. Runs continuously on Daniel's PC, checking for new decisions every 6 hours (A2AJ) and reporting discoveries without importing decisions. Designed to be pausable, resume-able, and disable-able. Disable by: - Setting SCHEDULED_INTAKE_ENABLED=false in .env - Renaming script to .disabled
 
 **Operational class:** Utility
 

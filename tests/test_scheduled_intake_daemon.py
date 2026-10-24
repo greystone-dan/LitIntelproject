@@ -139,6 +139,47 @@ def test_scheduled_intake_daemon_graceful_db_failure():
         daemon.log_run_to_db("test", "completed")
 
 
+@pytest.mark.parametrize("dry_run", [False, True])
+@pytest.mark.parametrize("discovered", [3, 0])
+def test_scheduled_intake_daemon_records_discovery_only(dry_run, discovered, caplog):
+    from scripts.scheduled_intake_daemon import ScheduledIntakeDaemon
+
+    daemon = ScheduledIntakeDaemon(dry_run=dry_run)
+    decisions = [{"citation": f"2026 FC {i + 1}"} for i in range(discovered)]
+
+    with (
+        patch.multiple(
+            daemon,
+            is_enabled=MagicMock(return_value=True),
+            acquire_lock=MagicMock(return_value=True),
+            release_lock=MagicMock(),
+            check_site_health=MagicMock(return_value=True),
+            should_run_a2aj_check=MagicMock(return_value=True),
+            discover_a2aj_new_decisions=MagicMock(return_value=(discovered, decisions)),
+        ),
+        patch("scripts.scheduled_intake_daemon.SessionLocal") as mock_session,
+        caplog.at_level("INFO", logger="scripts.scheduled_intake_daemon"),
+    ):
+        daemon.run_once()
+
+        db = mock_session.return_value.__enter__.return_value
+        db.add.assert_called_once()
+        run = db.add.call_args.args[0]
+        assert run.source_type == "a2aj_scheduled"
+        assert run.status == "completed"
+        assert run.run_type == "scheduled_discovery"
+        assert run.records_seen == discovered
+        assert run.records_ingested == 0
+        if discovered:
+            assert run.records_ingested != run.records_seen
+        assert run.metadata_json["dry_run"] is dry_run
+        db.commit.assert_called_once()
+        daemon.discover_a2aj_new_decisions.assert_called_once_with()
+        daemon.release_lock.assert_called_once_with()
+
+    assert f"A2AJ discovery-only cycle: discovered={discovered}, imported=0" in caplog.text
+
+
 def test_scheduled_intake_daemon_parses_command_line_args():
     """Test that CLI argument parsing works."""
     from scripts.scheduled_intake_daemon import parse_args

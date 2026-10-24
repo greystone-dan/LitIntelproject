@@ -9,7 +9,7 @@ import sys
 import time
 from pathlib import Path
 
-from sqlalchemy import delete, exists, select
+from sqlalchemy import delete, exists, func, select
 from sqlalchemy.orm import Session
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -79,7 +79,13 @@ def _store_tagging_status(db: Session, case_id: int, tags_count: int) -> None:
     status.tags_count = tags_count
 
 
-def pending_case_query(*, last_case_id: int = 0, recent: bool = False, court: str | None = None):
+def pending_case_query(
+    *,
+    last_case_id: int = 0,
+    recent: bool = False,
+    court: str | None = None,
+    include_tagged: bool = False,
+):
     already_tagged = exists(
         select(CaseTaggingStatus.id).where(
             CaseTaggingStatus.case_id == Case.id,
@@ -87,7 +93,9 @@ def pending_case_query(*, last_case_id: int = 0, recent: bool = False, court: st
             CaseTaggingStatus.tags_count >= 0,
         )
     )
-    statement = select(Case).where(~already_tagged)
+    statement = select(Case)
+    if not include_tagged:
+        statement = statement.where(~already_tagged)
     if court:
         statement = statement.where(Case.court == court)
     if recent:
@@ -184,15 +192,29 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     with SessionLocal() as db:
+        if args.dry_run:
+            if args.retag:
+                tags_to_delete = db.scalar(
+                    select(func.count()).select_from(CaseTag).where(
+                        CaseTag.taxonomy_version == TAXONOMY_VERSION
+                    )
+                )
+                statuses_to_delete = db.scalar(
+                    select(func.count()).select_from(CaseTaggingStatus).where(
+                        CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION
+                    )
+                )
+                print(f"tags_to_delete={tags_to_delete} statuses_to_delete={statuses_to_delete}")
+            cases = db.scalars(
+                pending_case_query(court=args.court, include_tagged=args.retag).limit(args.limit or 10)
+            ).all()
+            count = sum(len(build_case_tag_rows(case_text(case))) for case in cases)
+            print(f"pending_sample={len(cases)} preview_occurrences={count} taxonomy={TAXONOMY_VERSION}")
+            return
         if args.retag:
             db.execute(delete(CaseTag).where(CaseTag.taxonomy_version == TAXONOMY_VERSION))
             db.execute(delete(CaseTaggingStatus).where(CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION))
             db.commit()
-        if args.dry_run:
-            cases = db.scalars(pending_case_query(court=args.court).limit(args.limit or 10)).all()
-            count = sum(len(build_case_tag_rows(case_text(case))) for case in cases)
-            print(f"pending_sample={len(cases)} preview_occurrences={count} taxonomy={TAXONOMY_VERSION}")
-            return
         cases_tagged, tags_created, skipped_cases = tag_pending_cases(
             db,
             batch_size=args.batch_size,

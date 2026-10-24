@@ -2,206 +2,240 @@
 
 **Issue:** #663
 **Review date:** 2026-10-24
-**Checkout:** issue branch `copilot/dependency-security-report`, based on
-`origin/main` at `d2bcb41ea1e424024fabd3bc5c19028d75ebf6e2`
-**Scope:** report only. No dependency, application, test, workflow, or other
-documentation files were changed.
+**Base:** `d2bcb41ea1e424024fabd3bc5c19028d75ebf6e2`
+**Scope:** Report only. No dependency or application changes are proposed or
+applied.
 
-## Executive summary
+## Summary
 
-The three direct pins are in `requirements.txt`. `requirements-dev.txt` includes
-that manifest (`-r requirements.txt`), while `requirements-ml.txt` does not
-repeat any of these pins. The repository's audit workflows scan
-`requirements.txt`, but are informational and do not prove runtime reachability
-or exploitability (`docs/SECURITY_DEPENDENCIES.md`; `.swm/12.ci-quality-workflow.sw.md`).
+The pins are `sentence-transformers==3.0.0`, `python-multipart==0.0.9`, and
+`pypdf==4.2.0` in `requirements.txt`. The `requirements-dev.txt` manifest
+includes that file; `requirements-ml.txt` does not repeat these packages.
+The GitHub-reviewed advisory records below were retrieved on the review date.
+They are package-level matches, not a scan of the complete resolved
+environment.
 
-**Advisory verification is incomplete.** An exact-version OSV API lookup was
-attempted for all three PyPI pins, but external DNS resolution failed
-(`URLError: [Errno -5] No address associated with hostname`). The advisory,
-release, and changelog links below are authoritative follow-up sources, but
-were not fetched in this run. Consequently, no advisory ID, affected range,
-severity, or fixed version is asserted as verified here. A lead is not a
-confirmed finding; lack of a retrieved finding is not evidence of no
+All three pins fall in verified affected ranges. The smallest versions that
+cover the package-specific advisories identified here are:
+
+| Package | Assessment floor (not an instruction to upgrade) | Why |
+| --- | --- | --- |
+| `sentence-transformers` | `5.6.0` | Fixes the reviewed local-model code-execution advisory. |
+| `python-multipart` | `0.0.31` | Fixes the reviewed issues with minimum patch floors of `0.0.27`, `0.0.30`, and `0.0.31`. PyPI reports `0.0.32` as current on the review date. |
+| `pypdf` | `6.21.2` | Fixes the latest reviewed parser advisories identified, including records fixed in `6.21.2`. This crosses from 4.x to 6.x. |
+
+These are issue-specific minimum floors, not guarantees against future or
+transitive advisories. Owner approval is required before any upgrade.
+
+## Advisories verified
+
+### `sentence-transformers==3.0.0`
+
+| Advisory | Affected / fixed | Weakness |
+| --- | --- | --- |
+| [GHSA-jhr6-gm9c-rqjv / CVE-2026-68770](https://github.com/advisories/GHSA-jhr6-gm9c-rqjv) | `< 5.6.0`; fixed in `5.6.0` | Critical (CVSS 9.8) code execution when an attacker can influence a local model directory: custom Python referenced by `modules.json` can load despite `trust_remote_code=False`. |
+
+The app’s `POST /search/chunks/local` accepts a `model_name`
+(`backend/models.py`, `backend/routes.py`) and passes it to
+`SentenceTransformer(model_name, device=...)`
+(`backend/search_service.py`, `backend/embedding_providers.py`). The rollout
+flag defaults on, although configuration can disable it. Thus model loading is
+reachable through a request-selected model name when that route is enabled.
+The vulnerable condition still requires attacker-influenced model files to be
+loaded; whether a deployed instance permits a requester to cause such a model
+to be fetched or selected is **unverified**. The route does not accept an
+uploaded model directory. The separate query-embedding provider defaults to
+`none`, but that does not disable the local-chunk route.
+
+**Compatibility:** The 5.6.0 release notes warn when loading local custom code
+without `trust_remote_code=True` and say this will be required in v6.0. This
+app does not pass that option. Ordinary `BAAI/bge-m3` loading is not custom
+code in the checked-in code, but custom model behavior and the transitive
+dependency resolution are **unverified**. The upgrade spans several major
+versions; validate model loading, embeddings, dimensions, and installed
+transformers/torch compatibility. The candidate release notes do not document
+a change to this app's basic `SentenceTransformer(..., device=...)` call;
+runtime compatibility is **unverified**.
+
+**Existing tests:** `tests/test_embedding_providers.py`,
+`tests/test_local_embeddings.py`, and
+`test_local_chunk_search_respects_rollout_disable` in `tests/test_api.py`.
+Provider tests use fakes, and the API test covers only the disabled-rollout
+branch; they do not prove real model artifact compatibility or successful
+model loading from the local-search route.
+
+Sources: [GitHub advisory record](https://api.github.com/advisories/GHSA-jhr6-gm9c-rqjv);
+[5.6.0 release notes](https://github.com/huggingface/sentence-transformers/releases/tag/v5.6.0).
+The queried GitHub-reviewed package records returned this advisory; coverage
+outside that source/query, including transitive dependencies, is **unverified**.
+
+### `python-multipart==0.0.9`
+
+| Advisory | Affected / fixed | Weakness |
+| --- | --- | --- |
+| [GHSA-59g5-xgcq-4qw3 / CVE-2024-53981](https://github.com/advisories/GHSA-59g5-xgcq-4qw3) | `< 0.0.18`; fixed in `0.0.18` | High (CVSS 7.5) CPU/logging denial of service from malformed multipart boundary preamble or epilogue. |
+| [GHSA-pp6c-gr5w-3c5g / CVE-2026-42561](https://github.com/advisories/GHSA-pp6c-gr5w-3c5g) | `< 0.0.27`; fixed in `0.0.27` | High (CVSS 7.5) CPU denial of service from unbounded multipart part-header count/size. |
+| [GHSA-vffw-93wf-4j4q / CVE-2026-53537](https://github.com/advisories/GHSA-vffw-93wf-4j4q) | `< 0.0.30`; fixed in `0.0.30` | Low (CVSS 3.7) `Content-Disposition` extended-parameter interpretation conflict can smuggle field names or filenames past an upstream inspector. |
+| [GHSA-6jv3-5f52-599m / CVE-2026-53538](https://github.com/advisories/GHSA-6jv3-5f52-599m) | `< 0.0.30`; fixed in `0.0.30` | Low (CVSS 3.7) Semicolon handling in URL-encoded forms can create a parser differential and smuggle fields. |
+| [GHSA-5rvq-cxj2-64vf / CVE-2026-53539](https://github.com/advisories/GHSA-5rvq-cxj2-64vf) | `< 0.0.30`; fixed in `0.0.30` | High (CVSS 7.5) Quadratic-time parsing of semicolon-separated URL-encoded forms can exhaust CPU. |
+| [GHSA-v9pg-7xvm-68hf / CVE-2026-53540](https://github.com/advisories/GHSA-v9pg-7xvm-68hf) | `< 0.0.31`; fixed in `0.0.31` | Low (CVSS 3.7) Negative `Content-Length` makes direct `parse_form()` read to EOF. The advisory says Starlette/FastAPI do not use this helper; no direct `parse_form()` call was found in this repo, so this specific path is not shown reachable here. |
+
+FastAPI route declarations use `File`, `Form`, and `UploadFile` in
+`backend/routes.py` and `backend/main.py`. Multipart parsing therefore occurs
+before upload handlers process request contents. The app accepts attacker-
+provided document uploads on its live-analysis and de-identification routes.
+Network exposure of those routes in a particular deployment is **unverified**.
+The malformed-boundary and unbounded-header DoS advisories are directly
+relevant to this parser surface. Form-field parser differences are relevant
+where URL-encoded requests are accepted. The filename/field-name smuggling
+impact depends on downstream use; checked-in upload names are validated or
+passed into document analysis, and no claim of a confirmed authorization
+bypass is made.
+
+**Compatibility:** The `0.0.30` changelog changes URL-encoded parsing to use
+only `&` and ignores RFC 2231/5987 `name*` and `filename*` parameters; `0.0.31`
+validates negative `Content-Length` and changes multipart header handling and
+performance. These can change behavior for malformed or non-standard forms;
+ordinary FastAPI `File`/`Form` use is the intended path. Compare form values,
+filenames, validation, status codes, and upload limits after an authorized
+upgrade. No application code directly calls `python-multipart` APIs.
+
+**Existing tests:** Multipart upload/form coverage includes
+`tests/test_live_analysis.py`, `tests/test_live_reader.py`, and
+`tests/test_deidentify.py`. No test specifically exercises malformed boundary
+tails, oversized part headers, semicolon form ambiguity, or extended
+`Content-Disposition` parameters.
+
+Sources: [GitHub-reviewed package query](https://api.github.com/advisories?ecosystem=pip&affects=python-multipart&per_page=100);
+[0.0.31 changelog](https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md);
+[PyPI package metadata](https://pypi.org/pypi/python-multipart/json). The queried
+records returned the six advisories listed above. Older
+[CVE-2024-24762 / GHSA-2jv5-9r88-3w3p](https://github.com/advisories/GHSA-2jv5-9r88-3w3p)
+is fixed in `0.0.7` and does **not** affect `0.0.9`; this advisory is included
+to distinguish the earlier lead from the vulnerable findings.
+
+### `pypdf==4.2.0`
+
+GitHub-reviewed records below all include version ranges with a floor above
+`4.2.0`; therefore the pin is in each affected range. Advisories are grouped
+by the first fixed release; the short weakness descriptions summarize the
+advisory titles and impacts.
+
+| Fixed in | Verified advisories (GHSA / CVE) and weakness |
+| --- | --- |
+| `6.21.2` | [GHSA-6c7f-9265-g8fw / CVE-2026-115572](https://github.com/advisories/GHSA-6c7f-9265-g8fw), repeated references to a missing object cause long runtimes; [GHSA-jr96-gvgh-j3r4 / CVE-2026-115585](https://github.com/advisories/GHSA-jr96-gvgh-j3r4), repeated malformed cross-reference streams cause long runtimes; [GHSA-gmh7-3g9r-mjh5 / CVE-2026-115580](https://github.com/advisories/GHSA-gmh7-3g9r-mjh5), large cross-reference limits cause long runtimes. |
+| `6.21.1` | [GHSA-5hx5-vpf9-5wcv / CVE-2026-113786](https://github.com/advisories/GHSA-5hx5-vpf9-5wcv), crafted `/DCTDecode` data can invoke arbitrary image parsers; advisory says optional Pillow must be installed for impact. |
+| `6.21.0` | [GHSA-6vvc-x485-93v7 / CVE-2026-113789](https://github.com/advisories/GHSA-6vvc-x485-93v7), costly form-field retrieval; [GHSA-f54x-cmq8-qg57 / CVE-2026-113790](https://github.com/advisories/GHSA-f54x-cmq8-qg57), large arrays/dictionaries consume memory; [GHSA-cgf9-327m-v77c / CVE-2026-113791](https://github.com/advisories/GHSA-cgf9-327m-v77c), many small content-stream operations consume memory. |
+| `6.20.1` | [GHSA-qfv9-64jg-mh7p / CVE-2026-113792](https://github.com/advisories/GHSA-qfv9-64jg-mh7p) and [GHSA-9mx8-4j7g-633p / CVE-2026-113793](https://github.com/advisories/GHSA-9mx8-4j7g-633p), crafted tree/outline structures can cause infinite loops. |
+| `6.20.0` | [GHSA-39mj-jf6j-2qj3 / CVE-2026-113794](https://github.com/advisories/GHSA-39mj-jf6j-2qj3), truncated cross-reference table can loop; [GHSA-7mh2-4gg2-979f / CVE-2026-113795](https://github.com/advisories/GHSA-7mh2-4gg2-979f), multiple filters can consume excessive memory. |
+| `6.19.0` | [GHSA-v247-6f48-mgcj / CVE-2026-102999](https://github.com/advisories/GHSA-v247-6f48-mgcj), many embedded files cause long runtimes; [GHSA-php9-fj8v-98fj / CVE-2026-102998](https://github.com/advisories/GHSA-php9-fj8v-98fj), form appearance generation can run long; [GHSA-w23x-9jrw-r45c / CVE-2026-103000](https://github.com/advisories/GHSA-w23x-9jrw-r45c), alphabetical page labels can consume memory. |
+| `6.18.1` | [GHSA-fp3h-c4fm-7vvf / CVE-2026-102995](https://github.com/advisories/GHSA-fp3h-c4fm-7vvf), large `/ToUnicode` streams; [GHSA-jw7q-gvrg-4vj3 / CVE-2026-102997](https://github.com/advisories/GHSA-jw7q-gvrg-4vj3), malformed `/FlateDecode` streams; [GHSA-g9cg-prrw-2r8q / CVE-2026-102996](https://github.com/advisories/GHSA-g9cg-prrw-2r8q), large font widths; each can cause excessive resource use. |
+| `6.18.0` | [GHSA-5jq2-8x83-x246 / CVE-2026-102994](https://github.com/advisories/GHSA-5jq2-8x83-x246), long indirect-object headers cause long runtimes. |
+| `6.17.0` | [GHSA-qv6h-rv94-w285 / CVE-2026-102993](https://github.com/advisories/GHSA-qv6h-rv94-w285), large Roman page labels consume memory. |
+| `6.16.1` | [GHSA-23w6-3w8w-8484 / CVE-2026-84310](https://github.com/advisories/GHSA-23w6-3w8w-8484) and [GHSA-763m-79hh-57f2 / CVE-2026-84311](https://github.com/advisories/GHSA-763m-79hh-57f2), expensive outline and XForm extraction. |
+| `6.16.0` | [GHSA-jp53-mhqp-8xcg / CVE-2026-84309](https://github.com/advisories/GHSA-jp53-mhqp-8xcg), crafted tree insertion can loop. |
+| `6.15.0` | [GHSA-fc8x-2rww-xw9m / CVE-2026-82398](https://github.com/advisories/GHSA-fc8x-2rww-xw9m), long non-whitespace input causes inefficient parsing; [GHSA-fp3f-mc75-235c / CVE-2026-71870](https://github.com/advisories/GHSA-fp3f-mc75-235c), large `/ToUnicode` streams consume memory; [GHSA-fwg2-594c-jp42 / CVE-2026-71852](https://github.com/advisories/GHSA-fwg2-594c-jp42), oversized CID font-width ranges cause long runtimes/memory use. |
+| `6.14.2` | [GHSA-g867-7843-wf8q / CVE-2026-59935](https://github.com/advisories/GHSA-g867-7843-wf8q), unterminated ASCII85/ASCIIHex inline images can loop during text extraction. |
+| `6.14.1` | [GHSA-5xf7-4p34-54qr / CVE-2026-59936](https://github.com/advisories/GHSA-5xf7-4p34-54qr), unterminated inline images can loop during text extraction. |
+| `6.14.0` | [GHSA-55h5-xmcq-c37v / CVE-2026-59937](https://github.com/advisories/GHSA-55h5-xmcq-c37v), malformed xref entries cause long runtimes; [GHSA-5qjq-93h5-hrgp / CVE-2026-59938](https://github.com/advisories/GHSA-5qjq-93h5-hrgp), wrong image dimensions cause excessive memory use. |
+| `6.13.3` | [GHSA-jm82-fx9c-mx94](https://github.com/advisories/GHSA-jm82-fx9c-mx94), missing stream lengths can bypass declared-length limits and exhaust memory. |
+| `6.13.1` | [GHSA-g9xf-7f8q-9mcj / CVE-2026-54651](https://github.com/advisories/GHSA-g9xf-7f8q-9mcj), crafted article/thread structures can loop. |
+| `6.13.0` | [GHSA-m2v9-299j-rv96 / CVE-2026-54531](https://github.com/advisories/GHSA-m2v9-299j-rv96) and [GHSA-52x6-gq3r-vpf4 / CVE-2026-54530](https://github.com/advisories/GHSA-52x6-gq3r-vpf4), writer outline/article or layout-mode font paths can loop. |
+| `6.12.2` | [GHSA-j543-4vmf-qm7v / CVE-2026-49461](https://github.com/advisories/GHSA-j543-4vmf-qm7v), self-referencing form XObjects can consume memory; [GHSA-5hgr-hg42-57jg / CVE-2026-49460](https://github.com/advisories/GHSA-5hgr-hg42-57jg), PNG predictor streams can take long to decode. |
+| `6.12.1` | [GHSA-wjqc-6w8f-h24c / CVE-2026-48735](https://github.com/advisories/GHSA-wjqc-6w8f-h24c), large XMP metadata can exhaust memory. |
+| `6.12.0` | [GHSA-248m-82v9-q6g6 / CVE-2026-48156](https://github.com/advisories/GHSA-248m-82v9-q6g6), zero-only cross-reference stream widths with large `/Size` cause long runtimes. |
+| `6.10.2` | [GHSA-x284-j5p8-9c5p / CVE-2026-41314](https://github.com/advisories/GHSA-x284-j5p8-9c5p), oversized FlateDecode image dimensions can exhaust memory; [GHSA-4pxv-j86v-mhcw / CVE-2026-41313](https://github.com/advisories/GHSA-4pxv-j86v-mhcw), large trailer size in incremental mode causes long runtimes. |
+| `6.10.1` | [GHSA-jj6c-8h6c-hppx / CVE-2026-41168](https://github.com/advisories/GHSA-jj6c-8h6c-hppx), large cross-reference/object stream size values cause long runtimes. |
+| `6.10.0` | [GHSA-3crg-w4f6-42mx / CVE-2026-40260](https://github.com/advisories/GHSA-3crg-w4f6-42mx), crafted XMP entity declarations can exhaust memory. |
+| `6.9.2` | [GHSA-87mj-5ggw-8qc3 / CVE-2026-33699](https://github.com/advisories/GHSA-87mj-5ggw-8qc3), malformed dictionaries can loop during non-strict recovery. |
+
+**Reachability:** `backend/resource_limits.py` constructs `PdfReader` over
+uploaded PDF bytes and extracts text. The same helper is used in live analysis
+and document workflows. Inputs are untrusted uploads; the app limits the
+compressed upload size (10 MiB by default), extracted characters (5 million),
+and pages (500). Those checks do not establish that parser work or memory use
+is bounded before page extraction. The specific advisory paths are not all
+confirmed to be invoked by this reader call; that per-advisory reachability is
+**unverified**. Handling attacker-supplied PDFs makes the broader parser
+hardening directly relevant.
+
+**Compatibility:** The advisories and upstream changelog show resource limits,
+parser robustness changes, and one `/DCTDecode` image-parser restriction in
+`6.15.0`–`6.21.2`. `PdfReader(BytesIO(...))` and page text extraction remain the
+call-site API, but moving from 4.x to 6.21.2 crosses multiple releases and may
+alter malformed/encrypted PDF handling, extracted text, or exceptions. No
+specific removed call-site API was identified; full compatibility is
+**unverified** until the focused tests run.
+
+**Existing tests:** PDF upload and extracted-text/page limits are covered by
+`tests/test_live_analysis.py`; related upload flows are in
+`tests/test_deidentify.py` and `tests/test_live_reader.py`. The existing tests
+do not constitute regression tests for each advisory's specially crafted PDF.
+
+Sources: [GitHub-reviewed package query](https://api.github.com/advisories?ecosystem=pip&affects=pypdf&per_page=100);
+[upstream changelog](https://github.com/py-pdf/pypdf/blob/main/CHANGELOG.md);
+[6.21.2 release](https://github.com/py-pdf/pypdf/releases/tag/6.21.2). This is
+the set of affected records individually identified in that query during this
+review; whether it is exhaustive across the entire database is **unverified**.
+Other databases or later records are also **unverified**. The earlier lead
+`CVE-2024-41869` is an Adobe Acrobat/Reader CVE, not a pypdf advisory, and
+`GHSA-4xfr-9xv4-39c3` did not resolve in GitHub's advisory API; neither is
+counted as a pypdf finding.
+
+## Other aged pins
+
+This is a version-freshness observation, not a security finding or a complete
+audit. Pins from 2024 or earlier in the other manifests merit a routine
+compatibility/advisory review; package age alone does not establish
 vulnerability.
 
-Ranked below by reachable application surface and urgency to verify, not by
-confirmed severity:
+| Manifest | Other pins with 2024-or-earlier release lines |
+| --- | --- |
+| `requirements.txt` | `fastapi==0.111.0`, `uvicorn==0.29.0`, `psycopg2-binary==2.9.9`, `sqlalchemy==2.0.30`, `alembic==1.13.1`, `pgvector==0.2.5`, `openai==1.30.1`, `tiktoken==0.7.0`, `numpy==1.26.4`, `scipy==1.13.1`, `pandas==2.2.2`, `openpyxl==3.1.5`, `tqdm==4.67.1`, `pydantic==2.7.4`, `httpx==0.27.0`, `requests==2.32.3`, `cloudscraper==1.2.71`, `beautifulsoup4==4.12.3`, `python-docx==1.1.2`, `python-dotenv==1.0.1`, `pyyaml==6.0.1`, `pytest==8.2.2`, `black==24.4.2`. |
+| `requirements-dev.txt` | Inherits `requirements.txt`; additionally `pytest-cov==5.0.0` and `pytest-xdist==3.6.1`. |
+| `requirements-ml.txt` | `spacy==3.7.5`; the linked `en_core_web_md` wheel is version `3.7.1`. |
 
-1. **`python-multipart==0.0.9` — highest verification priority.** FastAPI
-   multipart form/file handling is used by upload and form endpoints. A
-   parser-level issue could be reached before route-level document processing.
-2. **`pypdf==4.2.0` — high verification priority.** PDF parsing is used by
-   upload workflows, including live analysis and de-identification. Existing
-   resource limits do not establish mitigation for an upstream parser defect.
-3. **`sentence-transformers==3.0.0` — verify, but no package-specific advisory
-   status is established.** It is used by local embedding/search code and
-   scripts, although the default query-embedding provider is disabled.
-
-These priorities are provisional exposure assessments, not verified
-vulnerability ratings.
-
-## Manifest inventory
-
-| Manifest | Pin(s) / inclusion | Interpretation |
-| --- | --- | --- |
-| `requirements.txt:24` | `sentence-transformers==3.0.0` | Direct pin; base application/CI manifest. |
-| `requirements.txt:45` | `python-multipart==0.0.9` | Direct pin; used indirectly by FastAPI multipart form/file parsing. |
-| `requirements.txt:47` | `pypdf==4.2.0` | Direct pin; imported by PDF resource/parsing code. |
-| `requirements-dev.txt:1` | `-r requirements.txt` | Inherits the three base pins; no duplicate direct pin. |
-| `requirements-ml.txt:1-9` | Only `spacy` and its model are declared | Does not repeat these pins. The documented optional-ML install combines it with the base requirements. |
-
-No other direct declaration of these three packages was found in
-`requirements*.txt`. This inventory does not lock or establish the resolved
-transitive dependency tree.
-
-## Advisory and upgrade assessment
-
-| Package and pin | Advisory status in this review | Candidate smallest issue-specific floor | Source links |
-| --- | --- | --- | --- |
-| `sentence-transformers==3.0.0` | **Unverified.** Exact-version advisory lookup could not reach OSV; no clean bill of health can be inferred. | **Unverified / not selected.** First establish any direct or transitive advisory and the resolved dependency set; do not choose a security bump from this report alone. | [PyPI 3.0.0](https://pypi.org/project/sentence-transformers/3.0.0/); [upstream releases](https://github.com/UKPLab/sentence-transformers/releases); [OSV PyPI search](https://osv.dev/list?ecosystem=PyPI&q=sentence-transformers); [GitHub Advisory search](https://github.com/advisories?query=sentence-transformers) |
-| `python-multipart==0.0.9` | **Unverified lead:** CVE-2024-53981 / GHSA-59g5-xgcq-4qw3 are candidate records to check. Whether the advisory is authentic/current in the linked sources and whether this exact pin is in its affected range were not verified here. | **Unverified candidate only:** 0.0.18 is a lead for the minimum fix version associated with that advisory; it is not confirmed as a currently safe target. Recheck current advisories and all resolved dependencies before selecting any target. | [GitHub advisory lead](https://github.com/Kludex/python-multipart/security/advisories/GHSA-59g5-xgcq-4qw3); [NVD CVE record](https://nvd.nist.gov/vuln/detail/CVE-2024-53981); [PyPI 0.0.9](https://pypi.org/project/python-multipart/0.0.9/); [upstream releases](https://github.com/Kludex/python-multipart/releases); [OSV search](https://osv.dev/list?ecosystem=PyPI&q=python-multipart) |
-| `pypdf==4.2.0` | **Unverified lead:** CVE-2024-41869 / GHSA-4xfr-9xv4-39c3 are candidate records to check. Whether the advisory is authentic/current in the linked sources and whether this exact pin is in its affected range were not verified here. | **Unverified candidate only:** 5.0.0 is a lead for the minimum fix version associated with that advisory; it is a major-version boundary, not a confirmed currently safe target. Recheck current advisories and compatibility before selecting any target. | [GitHub advisory lead](https://github.com/py-pdf/pypdf/security/advisories/GHSA-4xfr-9xv4-39c3); [NVD CVE record](https://nvd.nist.gov/vuln/detail/CVE-2024-41869); [PyPI 4.2.0](https://pypi.org/project/pypdf/4.2.0/); [upstream 5.0.0 release](https://github.com/py-pdf/pypdf/releases/tag/5.0.0); [upstream changelog](https://github.com/py-pdf/pypdf/blob/main/CHANGELOG.md); [OSV search](https://osv.dev/list?ecosystem=PyPI&q=pypdf) |
-
-The two named CVE/GHSA pairs and candidate floors above are **unverified
-research leads**, not findings. No source content was retrieved in this
-environment, so the report cannot confirm advisory existence, affected
-intervals, severities, or patch notes. Do not treat these candidate floors as
-recommendations to apply. The authoritative records and upstream release notes
-must be checked successfully before a dependency change is planned.
-
-## Application use, reachability, and compatibility risks
-
-### `sentence-transformers`
-
-- `backend/embedding_providers.py` lazy-loads the sentence-transformers model
-  provider. `backend/query_embedding_providers.py` supplies the opt-in local
-  query-embedding provider; the default provider is `none`.
-- `backend/search_service.py` can use local embeddings for relevant search
-  paths. `backend/routes.py` exposes local semantic/search workflows.
-- Scripts also use the package for local chunk embeddings and argument-list
-  similarity (`scripts/embed_local_chunks.py`, `scripts/merge_argument_lists.py`,
-  and `scripts/eval_models.py`).
-- A change can affect model loading, dependency compatibility, embedding
-  behavior, latency, memory use, or vectors produced for a given model. Those
-  are compatibility risks to test; no specific break is verified for any
-  candidate version.
-- Existing focused coverage includes
-  `tests/test_embedding_providers.py` and `tests/test_local_embeddings.py`.
-  These tests exercise provider behavior but do not by themselves establish
-  compatibility with every real model/artifact.
-
-### `python-multipart`
-
-- No direct package import was found. FastAPI `File`, `Form`, and `UploadFile`
-  declarations rely on multipart handling for request parsing.
-- Reachable examples include live document analysis, upload-based
-  de-identification/re-identification, and other file/form routes in
-  `backend/routes.py`; `backend/main.py` also declares a `Form` input.
-- Existing request coverage includes multipart uploads/forms in
-  `tests/test_live_analysis.py`, `tests/test_live_reader.py`, and
-  `tests/test_deidentify.py`.
-- A change may alter acceptance/rejection of malformed boundaries, form fields,
-  or uploaded files, and may interact with FastAPI/Starlette versions. Preserve
-  route status codes, validation, limits, and response contracts; no concrete
-  API break is verified.
-
-### `pypdf`
-
-- `backend/resource_limits.py` imports `PdfReader` and provides bounded page/text
-  extraction. PDF processing is reached through live analysis and upload-based
-  de-identification/re-identification flows; there are also PDF-specific route
-  paths.
-- Existing coverage includes PDF extraction and live-analysis cases in
-  `tests/test_live_analysis.py`, and upload/redaction paths in
-  `tests/test_deidentify.py` and `tests/test_live_reader.py`.
-- The `PdfReader` call surface appears localized, but the candidate fix crosses
-  a major release boundary. Check parser defaults, malformed/encrypted-file
-  behavior, page/text limits, and exception handling against the installed
-  version. This is a compatibility test plan, not a claim that these APIs
-  changed.
-
-All reachability statements above describe checked-in call sites, not whether
-the application is externally accessible, a malicious input is accepted, or an
-advisory is exploitable in deployment.
+The other listed `requirements.txt` pins not in that age group include the
+recent `datasets`, Hugging Face, `pyarrow`, and `pycountry` pins visible in the
+manifest. A full current-version or transitive audit was not performed.
 
 ## Ranked recommendation and test plan
 
-1. **Verify `python-multipart` advisory lead and upload parser behavior first.**
-   Retrieve the linked GHSA/NVD/OSV records and upstream release notes; establish
-   the exact affected range and current patched release. If a future change is
-   separately authorized, run the focused multipart route tests above and add
-   malformed-boundary/form regression coverage for any confirmed issue.
-2. **Verify `pypdf` advisory lead and PDF parser behavior.** Establish the
-   affected range and fixed release from authoritative records/changelog. If a
-   future change is separately authorized, test valid, malformed, encrypted,
-   and over-limit PDF fixtures through the bounded parser and the live-analysis
-   and de-identification routes. Pay particular attention to compatibility
-   across the candidate major-version boundary.
-3. **Resolve `sentence-transformers` and its transitive tree.** Check exact
-   package and resolved dependency versions against current advisory sources.
-   If a future change is separately authorized, run the provider/local-embedding
-   tests and the local semantic-search API contract; include a real model smoke
-   check only where model artifacts are already available and no external or
-   paid operation is needed.
-4. **After any separately approved dependency patch**, run the repository's
-   `pip-audit -r requirements.txt` scan and normal focused tests in the patch
-   branch, then broader CI as required. The current audit workflows are
-   non-blocking; inspect their artifacts and do not treat a green run as proof
-   of no risk. This report does not request or apply any upgrade.
+1. **`sentence-transformers`: assess/fix first if the local chunk-search route
+   is enabled for untrusted callers.** It has the highest verified severity
+   and a request-selected model name reaches model loading. Before an
+   owner-approved update, test `tests/test_embedding_providers.py`,
+   `tests/test_local_embeddings.py`, and the local-search tests in
+   `tests/test_api.py`; then perform an offline smoke test with the configured
+   trusted model. Do not test by loading an untrusted model. Whether the live
+   route is externally exposed is **unverified**.
+2. **`python-multipart`: next for parser-level availability and form
+   interpretation issues.** After separate approval, run the upload/form tests
+   above and add regression cases for malformed boundary tails, oversized part
+   headers, `name*`/`filename*`, and URL-encoded semicolon bodies. Check ordinary
+   FastAPI form values and upload behavior against the 0.0.31 changelog changes.
+3. **`pypdf`: update planning should include a major-version compatibility
+   checkpoint.** After separate approval, run the PDF/live-analysis and
+   de-identification tests; exercise valid, malformed, encrypted, and
+   over-limit PDFs through `extract_pdf_pages`. Add regression fixtures for
+   advisory-specific parser paths only where safe fixtures are available.
+4. **After any approved patch**, resolve and scan the full environment (the
+   repo's `pip-audit -r requirements.txt` workflow scans the base manifest) and
+   run the focused tests above before full CI. The audit workflows are
+   informational/non-blocking and do not prove runtime exploitability.
 
 ## Validation and limitations
 
-- The exact-version OSV API queries for all three pins failed before returning
-  data because external DNS resolution was unavailable. Linked GHSA, NVD,
-  PyPI, release, and changelog pages were not retrieved; advisory claims and
-  candidate floors therefore remain **unverified**.
-- A read-only repository inventory confirmed the three direct pins and relevant
-  application, script, and test call sites. No tests, package installation,
-  dependency audit, database operation, deployment, or upgrade was performed.
-- `python scripts/check_generated_docs.py` was attempted and failed because
-  `fastapi` and `sqlalchemy` are unavailable for the API/schema generators.
-- `git diff --no-index --check /dev/null
-  docs/code-review/12-dependency-security.md` passed after removing trailing
-  whitespace. A local Markdown-link check found 15 links and no broken local
-  links; external links were not reachable or checked.
-- A high-confidence credential-pattern scan checked four common private-key,
-  AWS, GitHub-token, and OpenAI-key patterns and found no matches. This was a
-  targeted scan, not a full repository secret-scanner run.
-- The `CodeQL` CLI was unavailable, no CodeQL workflow/configuration was found
-  under `.github/workflows/`, and `gh auth status` reported that the CLI is not
-  logged in. A remote CodeQL run could not be initiated from this environment.
-- The only authorized file change for this report-only issue is this report.
-  The canonical dependency guide and CI-quality Swimm walkthrough remain
-  unchanged by design; no workflow or dependency behavior was changed.
-
-**Disposition:** the report artifact is complete, but external advisory
-verification is blocked. The package-specific advisory/fix-version assessment
-should remain open until authoritative sources are retrievable and checked.
-
-## Execution record
-
-- **Task:** Produce the issue #663 dependency-security assessment.
-- **Why now:** The three direct dependency pins need an evidence-backed,
-  reachability-aware review; report only.
-- **Owner surface:** Dependency-security review report.
-- **Dependencies:** Authoritative advisory and upstream release/changelog
-  records; external lookup was blocked.
-- **Risk boundary:** No requirements, application, tests, workflow, database, or
-  deployment changes. No upgrades are proposed for application.
-- **Smallest falsifiable check:** Reconcile the exact pins across all
-  `requirements*.txt` files and confirm source call sites/tests; separately
-  verify exact versions against current authoritative advisory records.
-- **Acceptance:** The manifest/use/reachability inventory is reported. The
-  advisory-verification criterion remains blocked by unavailable external
-  sources.
-- **Docs/generated references:** This report is the only new file, as requested.
-  No separate task record, canonical dependency-guide edit, or Swimm walkthrough
-  update was made because the issue limits the change to exactly one file.
-- **Rollback/recovery:** Remove this report; no runtime behavior or dependency
-  state changed. Retry source verification when advisory sites are reachable.
-- **Evidence:** Inventory was delegated read-only; OSV queries failed DNS
-  resolution. Documentation, local-link, targeted secret-pattern, and CodeQL
-  validation results and limitations are recorded above.
-- **Commit allowed:** yes. **Push allowed:** yes. Neither was performed.
-- **Status:** Report delivered; advisory verification and the documentation
-  checkpoint are blocked by source/network and one-file scope constraints.
+- Repository call sites, manifest pins, tests, and the cited GitHub advisory
+  records/changelogs were checked on 2026-10-24. No package install, dependency
+  audit, runtime test, database operation, deployment, or upgrade was done.
+- Exact route exposure in the live deployment, all possible package advisories
+  outside the cited GitHub-reviewed query results, and compatibility after
+  upgrading are **unverified**.
+- The report is the only changed path, as requested. No tests were added because
+  this is report-only and runtime code is unchanged.
+- `python scripts/check_generated_docs.py` was attempted and could not run
+  because `fastapi` and `sqlalchemy` are unavailable in this environment.
+- Local Markdown-link and whitespace checks passed; external sources were
+  checked individually where cited. Secret scanning and CodeQL results are
+  recorded in the PR checks, not asserted here.

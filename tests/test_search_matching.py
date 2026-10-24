@@ -13,7 +13,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from backend import analytics_service, routes, search_service
-from backend.models import CaseSearchRequest
+from backend.models import CaseSearchRequest, ResearchRequest
 from backend.search_matching import _longest_token, citation_query, identity_sql, identity_tier, match_details, matched_on
 from backend.query_syntax import parse_query
 
@@ -145,6 +145,23 @@ def test_topic_phrase_keeps_existing_python_score_order():
 		query="procedural fairness", search_mode="lexical"), db)
 	assert [hit.id for hit in hits] == [3, 1, 2]
 	assert [hit.matched_on for hit in hits] == ["Full text", "Full text", "Title"]
+
+
+def test_case_search_balanced_rag_uses_case_level_scoring():
+	rows = [(case("First unrelated case", id=1), 1.0, 0),
+		(case("Second unrelated case", id=2), 0.5, 0)]
+	hits = search_service.execute_search_cases(
+		ResearchRequest(query="procedural fairness", search_mode="lexical", ranking_mode="balanced_rag"),
+		SearchDB(rows))
+	assert [hit.id for hit in hits] == [1, 2]
+
+
+def test_case_search_applies_each_cases_own_graph_boost():
+	rows = [(case("First unrelated case", id=1), 1.0, 0),
+		(case("Second unrelated case", id=2), 1.0, 100)]
+	hits = search_service.execute_search_cases(
+		CaseSearchRequest(query="procedural fairness", search_mode="lexical"), SearchDB(rows))
+	assert [hit.id for hit in hits] == [2, 1]
 
 
 @pytest.mark.parametrize("mode", ["semantic", "hybrid", "metadata"])

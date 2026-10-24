@@ -160,6 +160,23 @@ def test_supreme_court_judge_later_on_fca_merges_when_dates_do_not_overlap():
 	assert len(g) == 1 and set(g[0].members) == {"Marshall Rothstein", "ROTHSTEIN J.A."}
 
 
+def test_fca_before_scc_still_joins_scc_only_cluster():
+	day = 365
+	counts = {"Alex Sample": 20, "SAMPLE J.A.": 10}
+	spans = {"Alex Sample": (2010 * day, 2020 * day), "SAMPLE J.A.": (1990 * day, 2000 * day)}
+	courts = {"Alex Sample": {"SCC"}, "SAMPLE J.A.": {"FCA"}}
+	groups = group_judge_names(counts, spans, courts)
+	assert len(groups) == 1 and set(groups[0].members) == set(counts)
+
+
+def test_fca_before_cluster_without_court_information_does_not_join():
+	day = 365
+	counts = {"Alex Sample": 20, "SAMPLE J.A.": 10}
+	spans = {"Alex Sample": (2010 * day, 2020 * day), "SAMPLE J.A.": (1990 * day, 2000 * day)}
+	groups = group_judge_names(counts, spans)
+	assert not any("SAMPLE J.A." in group.members for group in groups)
+
+
 def test_panel_ignores_sentence_fragments():
 	from backend.judge_normalization import parse_panel
 	assert parse_panel("et nous sommes d'avis que ce jugement est bien fondé.; Abella, Rosalie") and \

@@ -102,6 +102,7 @@ def test_more_range_spellings(text, paragraphs):
 		(10, 12, [10, 11, 12]),
 		(45, 48, [45, 46, 47, 48]),
 		(199, 1, [199, 200, 201]),
+		(50, 20, [50]),
 	],
 )
 def test_abbreviated_and_full_ranges_expand_correctly(start, end, expected):
@@ -116,6 +117,7 @@ def test_abbreviated_and_full_ranges_expand_correctly(start, end, expected):
 		("paras 1203-05", (1203, 1204, 1205)),
 		("paras 10-12", (10, 11, 12)),
 		("paras 45-48", (45, 46, 47, 48)),
+		("paras 50-20", (50,)),
 	],
 )
 def test_pinpoint_parser_expands_abbreviated_and_full_ranges(text, expected):

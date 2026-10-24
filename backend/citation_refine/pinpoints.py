@@ -64,7 +64,7 @@ def _expand_range(start: int, end: int) -> list[int]:
 		# Abbreviated page ranges, e.g. 841-42 means 841 to 842.
 		digits = len(str(end))
 		candidate = int(str(start)[: -digits] + str(end)) if len(str(start)) > digits else end
-		if candidate < start:
+		if candidate < start and len(str(end)) < len(str(start)):
 			candidate += 10**digits
 		end = candidate
 	if end < start:

@@ -452,7 +452,7 @@ def execute_search_cases(
 		statement = statement.order_by(semantic_distance)
 
 	raw_rows = list(db.execute(statement))
-	prepared_rows: list[tuple[Case, float, float]] = []
+	prepared_rows: list[tuple[Case, float, float, int]] = []
 	max_lexical = 0.0
 
 	for row in raw_rows:
@@ -476,15 +476,12 @@ def execute_search_cases(
 			else 0.0
 		)
 		lexical_score = max(0.0, float(lexical_rank_value or 0.0))
-		if getattr(search, "ranking_mode", "paragraph") == "balanced_rag":
-			local_relevance = _local_passage_relevance(search.query, chunk.text)
-			semantic_similarity = (0.85 * semantic_similarity) + (0.15 * local_relevance)
 		max_lexical = max(max_lexical, lexical_score)
-		prepared_rows.append((case, semantic_similarity, lexical_score))
+		prepared_rows.append((case, semantic_similarity, lexical_score, int(graph_in_degree_value or 0)))
 
 	weighted_rows: list[tuple[Case, float, float, str, int]] = []
 	identity_query = bool(citation_query(search.query))
-	for case, semantic_similarity, lexical_score in prepared_rows:
+	for case, semantic_similarity, lexical_score, graph_in_degree_value in prepared_rows:
 		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
 		if effective_mode == "semantic":
 			final_score = semantic_similarity

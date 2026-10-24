@@ -150,6 +150,7 @@ Active scripts documented: 200
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_refined_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help` |
 | `merge_argument_lists.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\merge_argument_lists.py --help` |
+| `merge_one_judge_profile.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\merge_one_judge_profile.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
@@ -2169,6 +2170,20 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\merge_argument_lists.py --help
+```
+
+## `scripts/merge_one_judge_profile.py`
+
+**Purpose:** Merge ONE duplicate judge profile into another through the reversible alias layer (dry run by default). Writes exactly one row to `judge_profile_aliases` (alias profile -> canonical profile). No profile or case link is changed or deleted; the judge list and judge page already add an alias profile's decisions to its canonical profile. python scripts/merge_one_judge_profile.py --alias-id A --canonical-id C # dry run python scripts/merge_one_judge_profile.py --alias-id A --canonical-id C --apply --expected-count 1 # writes 1 row, saves an undo file python scripts/merge_one_judge_profile.py --undo data/db_fix_backups/merge_one_judge_<stamp>.jsonl # delete exactly that row The dry run prints both profiles (court, decision count, date span, raw names linked) and refuses when the two are not plainly the same person: different primary courts, no shared surname, either profile already aliased, or the alias profile being someone else's canonical profile.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\merge_one_judge_profile.py --help
 ```
 
 ## `scripts/package_discussion_units_llm.py`

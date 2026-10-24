@@ -197,9 +197,11 @@ def test_withdrawn_outcome_has_no_named_winner_for_either_government_role(style,
 	assert payload.get("case winner") is None
 	assert payload.get("case loser") is None
 	assert payload["outcome detail"]["disposition"] == "withdrawn"
+	assert payload["outcome detail"]["status"] == "undetermined"
 	assert payload["outcome detail"]["winner"] is None
 	assert payload["outcome detail"]["loser"] is None
 	assert outcome["decision_outcome"] == "withdrawn"
+	assert outcome["outcome_status"] == "undetermined"
 	assert outcome["winner_side"] is None
 	assert outcome["loser_side"] is None
 
@@ -242,7 +244,7 @@ def test_withdrawn_outcome_has_no_named_winner_for_either_government_role(style,
 			"withdrawn",
 			("undetermined", "undetermined"),
 			(None, None),
-			("lost", None, None),
+			("undetermined", None, None),
 		),
 		("procedural", (None, None), (None, None), ("undetermined", None, None)),
 		("unclear", (None, None), (None, None), ("undetermined", None, None)),
@@ -278,6 +280,7 @@ def test_outcome_labels_preserve_existing_results_except_withdrawn_winners(
 		assert fields.get("government outcome", (None,))[0] == expected_government_outcome
 		assert outcome_detail["disposition"] == label
 		assert outcome["decision_outcome"] == label
+		assert outcome["outcome_status"] == detail[0]
 		assert (
 			fields.get("case winner", (None,))[0],
 			fields.get("case loser", (None,))[0],

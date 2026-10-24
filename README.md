@@ -94,20 +94,15 @@ browser.
 
 ## Run tests
 
-The CI test job uses Python 3.12 and installs `requirements-dev.txt`. Run the
-same test selection locally:
+The CI test job uses Python 3.12, installs `requirements-dev.txt`, and runs
+pytest without `--deselect` or a PostgreSQL service. PostgreSQL is provided by
+the separate migrations job. Run tests locally with:
 
 ```bash
 pip install -r requirements-dev.txt
-python -m pytest -q \
-  --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence \
-  --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes \
-  --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint
+python -m pytest -q
 ```
 
-Those three tests are deliberately deselected in CI: two require a local
-PostgreSQL service, and one expects an Ollama client configuration that is not
-available in a clean test environment and remains under investigation.
 Generated API, schema, and script documentation is checked with:
 
 ```bash

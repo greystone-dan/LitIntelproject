@@ -933,6 +933,19 @@ def main() -> None:
         if args.case_ids_csv:
             scoped_case_ids = sorted(set(scoped_case_ids + load_case_ids_from_csv(args.case_ids_csv)))
 
+        if scoped_case_ids and not args.replace_existing:
+            existing_chunks = db.scalar(
+                select(func.count()).select_from(CaseChunk).where(
+                    CaseChunk.case_id.in_(scoped_case_ids)
+                )
+            )
+            if existing_chunks:
+                print(
+                    f"Selected cases already have {existing_chunks} chunks. "
+                    "Use --replace-existing to rebuild them. No changes made."
+                )
+                return
+
         if args.dry_run:
             if scoped_case_ids:
                 statement = select(Case).where(Case.id.in_(scoped_case_ids)).order_by(Case.id)

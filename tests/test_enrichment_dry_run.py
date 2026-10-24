@@ -51,6 +51,8 @@ def assert_read_only(db):
 def test_chunk_scoped_dry_run_is_read_only(
     monkeypatch, tmp_path, db, case, capsys, replace_existing, scope
 ):
+    if not replace_existing:
+        db.scalar.side_effect = [0]
     args = ["--dry-run"]
     if scope in ("case-id", "both"):
         args += ["--case-id", "42", "--case-id", "42"]
@@ -74,11 +76,13 @@ def test_chunk_scoped_dry_run_is_read_only(
         count_query = db.scalar.call_args.args[0]
         assert count_query.compile().params == {"case_id_1": [42]}
     else:
-        db.scalar.assert_not_called()
+        db.scalar.assert_called_once()
+        assert db.scalar.call_args.args[0].compile().params == {"case_id_1": [42]}
 
 
 @pytest.mark.parametrize("replace_existing", [False, True])
 def test_chunk_real_run_honors_replace_existing(monkeypatch, db, case, capsys, replace_existing):
+    db.scalar.side_effect = [0]
     args = ["--case-id", "42"]
     if replace_existing:
         args.append("--replace-existing")
@@ -98,6 +102,36 @@ def test_chunk_real_run_honors_replace_existing(monkeypatch, db, case, capsys, r
     assert all(row.case_id == 42 for row in rows)
     db.commit.assert_called_once()
     assert f"cases_chunked=1 chunks_created={len(rows)}" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("dry_run", [False, True])
+@pytest.mark.parametrize("scope", ["case-id", "csv", "both"])
+def test_chunk_existing_chunks_stop_scoped_run_without_writes(
+    monkeypatch, tmp_path, db, capsys, dry_run, scope
+):
+    args = ["--dry-run"] if dry_run else []
+    if scope in ("case-id", "both"):
+        args += ["--case-id", "42", "--case-id", "43"]
+    if scope in ("csv", "both"):
+        path = tmp_path / "cases.csv"
+        path.write_text("case_id\n42\n43\n", encoding="utf-8")
+        args += ["--case-ids-csv", str(path)]
+    builder = MagicMock()
+    monkeypatch.setattr(chunk_cases, "build_case_chunk_layers", builder)
+
+    run_main(monkeypatch, chunk_cases, db, args)
+
+    assert_read_only(db)
+    db.scalar.assert_called_once()
+    statement = db.scalar.call_args.args[0]
+    assert "case_chunks" in str(statement)
+    assert statement.compile().params == {"case_id_1": [42, 43]}
+    db.scalars.assert_not_called()
+    builder.assert_not_called()
+    output = capsys.readouterr().out
+    assert "already have 7 chunks" in output
+    assert "--replace-existing" in output
+    assert "No changes made." in output
 
 
 def test_chunk_pending_dry_run_remains_read_only(monkeypatch, db, capsys):

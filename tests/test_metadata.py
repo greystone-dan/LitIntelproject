@@ -1,9 +1,18 @@
+import re
 from hashlib import sha256
 from types import SimpleNamespace
 
+import pytest
+
 from backend.case_processing import _run_metadata_layer
 from backend.metadata import extract_case_metadata, extract_metadata_matches, extract_metadata_observations
-from backend.metadata_outcomes import build_case_outcome
+from backend import metadata_outcomes
+from backend.metadata_outcomes import (
+	Decision,
+	_derive_outcome_fields,
+	build_case_outcome,
+	derive_outcome_detail,
+)
 
 
 class FakeSession:
@@ -167,6 +176,118 @@ def test_metadata_outcome_marks_partial_relief_as_mixed():
 	assert payload["government outcome"] == "mixed"
 	assert payload["case winner"] == "mixed"
 	assert payload["outcome detail"]["status"] == "mixed"
+
+
+@pytest.mark.parametrize(
+	("style", "role"),
+	[
+		("Minister of Citizenship and Immigration v. Jane Doe", "applicant"),
+		("Jane Doe v. Minister of Citizenship and Immigration", "respondent"),
+	],
+)
+def test_withdrawn_outcome_has_no_named_winner_for_either_government_role(style, role):
+	text = f"STYLE OF CAUSE:\n{style}\nORDER\nThe application is withdrawn."
+
+	payload = extract_case_metadata(text)
+	outcome = build_case_outcome(text, {"style of cause": style})
+
+	assert payload["decision outcome"] == "withdrawn"
+	assert payload["government role"] == role
+	assert payload["government outcome"] == "undetermined"
+	assert payload.get("case winner") is None
+	assert payload.get("case loser") is None
+	assert payload["outcome detail"]["disposition"] == "withdrawn"
+	assert payload["outcome detail"]["winner"] is None
+	assert payload["outcome detail"]["loser"] is None
+	assert outcome["decision_outcome"] == "withdrawn"
+	assert outcome["winner_side"] is None
+	assert outcome["loser_side"] is None
+
+
+@pytest.mark.parametrize(
+	("label", "government_outcomes", "legacy_sides", "detail"),
+	[
+		(
+			"allowed",
+			("won", "lost"),
+			("applicant", "respondent"),
+			("won", "applicant", "respondent"),
+		),
+		(
+			"granted",
+			("won", "lost"),
+			("applicant", "respondent"),
+			("won", "applicant", "respondent"),
+		),
+		(
+			"set_aside",
+			("won", "lost"),
+			("applicant", "respondent"),
+			("won", "applicant", "respondent"),
+		),
+		(
+			"remitted",
+			("won", "lost"),
+			("applicant", "respondent"),
+			("won", "applicant", "respondent"),
+		),
+		(
+			"dismissed",
+			("lost", "won"),
+			("respondent", "applicant"),
+			("lost", "respondent", "applicant"),
+		),
+		("mixed", ("mixed", "mixed"), ("mixed", "mixed"), ("mixed", None, None)),
+		(
+			"withdrawn",
+			("undetermined", "undetermined"),
+			(None, None),
+			("lost", None, None),
+		),
+		("procedural", (None, None), (None, None), ("undetermined", None, None)),
+		("unclear", (None, None), (None, None), ("undetermined", None, None)),
+	],
+)
+def test_outcome_labels_preserve_existing_results_except_withdrawn_winners(
+	monkeypatch, label, government_outcomes, legacy_sides, detail
+):
+	text = "operative disposition"
+	match = re.search("disposition", text)
+
+	def decide(_content):
+		return Decision(label, "test", match, tail=text, partial=label == "mixed")
+
+	monkeypatch.setattr(
+		metadata_outcomes,
+		"_decide",
+		decide,
+	)
+
+	styles = (
+		"Minister of Citizenship and Immigration v. Jane Doe",
+		"Jane Doe v. Minister of Citizenship and Immigration",
+	)
+	for index, style in enumerate(styles):
+		metadata = {"style of cause": style}
+		fields = _derive_outcome_fields(text, metadata)
+		outcome_detail = derive_outcome_detail(text, metadata)
+		outcome = build_case_outcome(text, metadata)
+
+		assert fields.get("decision outcome", (None,))[0] == label
+		expected_government_outcome = government_outcomes[index]
+		assert fields.get("government outcome", (None,))[0] == expected_government_outcome
+		assert outcome_detail["disposition"] == label
+		assert outcome["decision_outcome"] == label
+		assert (
+			fields.get("case winner", (None,))[0],
+			fields.get("case loser", (None,))[0],
+		) == legacy_sides
+		assert (
+			outcome_detail["status"],
+			outcome_detail.get("winner"),
+			outcome_detail.get("loser"),
+		) == detail
+		assert (outcome["winner_side"], outcome["loser_side"]) == legacy_sides
 
 
 def test_metadata_exposes_multiple_challenged_issues_without_replacing_legacy_issue():

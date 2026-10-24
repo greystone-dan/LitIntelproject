@@ -859,12 +859,17 @@ def _derive_outcome_fields(content: str, metadata: dict[str, object]) -> dict[st
 		else:
 			government_outcome = "undetermined"
 		derived["government outcome"] = (government_outcome, 0.70 if partial else 0.76)
-		winner = gov_role if government_outcome == "won" else "applicant" if gov_role == "respondent" else "respondent"
-		loser = "respondent" if winner == "applicant" else "applicant"
-		if government_outcome == "mixed":
-			winner = loser = "mixed"
-		derived["case winner"] = (winner, 0.70 if partial else 0.76)
-		derived["case loser"] = (loser, 0.70 if partial else 0.76)
+		if outcome != "withdrawn":
+			winner = (
+				gov_role
+				if government_outcome == "won"
+				else "applicant" if gov_role == "respondent" else "respondent"
+			)
+			loser = "respondent" if winner == "applicant" else "applicant"
+			if government_outcome == "mixed":
+				winner = loser = "mixed"
+			derived["case winner"] = (winner, 0.70 if partial else 0.76)
+			derived["case loser"] = (loser, 0.70 if partial else 0.76)
 		derived["outcome status"] = (government_outcome, 0.70 if partial else 0.76)
 	elif outcome:
 		derived["outcome status"] = ("mixed" if partial else "undetermined", 0.60 if partial else 0.50)
@@ -893,15 +898,16 @@ def derive_outcome_detail(content: str, metadata: dict[str, object]) -> dict[str
 		return {"status": "undetermined", "disposition": decision.label, "evidence": evidence, "reason": decision.reason}
 	label, partial = decision.label, decision.partial
 	role = _resolve_government_role(content, metadata)
-	status = "mixed" if partial else "undetermined"
+	status = "undetermined" if label == "withdrawn" else ("mixed" if partial else "undetermined")
 	winner = loser = None
 	if role and not partial:
 		# "applicant" is the party that brought the proceeding or appeal, whoever it is (the Minister can be the
 		# appellant), so who won depends only on the ruling, never on which side the government is on.
 		applicant_won = label in {"allowed", "granted", "set_aside", "remitted"}
-		status = "won" if applicant_won else "lost"
-		winner = "applicant" if applicant_won else "respondent"
-		loser = "respondent" if winner == "applicant" else "applicant"
+		if label != "withdrawn":
+			status = "won" if applicant_won else "lost"
+			winner = "applicant" if applicant_won else "respondent"
+			loser = "respondent" if winner == "applicant" else "applicant"
 	return {
 		"status": status,
 		"disposition": label,

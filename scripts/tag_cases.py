@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy import delete, exists, select
+from sqlalchemy import delete, exists, func, select
 from sqlalchemy.orm import Session
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -75,6 +75,7 @@ def pending_case_query(
     last_case_id: int = 0,
     court: str | None = None,
     source_type: str | None = None,
+    include_tagged: bool = False,
 ):
     already_tagged = exists(
         select(CaseTaggingStatus.id).where(
@@ -82,7 +83,9 @@ def pending_case_query(
             CaseTaggingStatus.taxonomy_version == taxonomy_version,
         )
     )
-    statement = select(Case).where(Case.id > last_case_id, ~already_tagged).order_by(Case.id)
+    statement = select(Case).where(Case.id > last_case_id).order_by(Case.id)
+    if not include_tagged:
+        statement = statement.where(~already_tagged)
     if court:
         statement = statement.where(Case.court == court)
     if source_type:
@@ -167,21 +170,25 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     with SessionLocal() as db:
-        if args.retag:
-            db.execute(delete(CaseTag).where(CaseTag.taxonomy_version == TAXONOMY_VERSION))
-            db.execute(
-                delete(CaseTaggingStatus).where(
-                    CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION
-                )
-            )
-            db.commit()
-
         if args.dry_run:
+            if args.retag:
+                tags_to_delete = db.scalar(
+                    select(func.count()).select_from(CaseTag).where(
+                        CaseTag.taxonomy_version == TAXONOMY_VERSION
+                    )
+                )
+                statuses_to_delete = db.scalar(
+                    select(func.count()).select_from(CaseTaggingStatus).where(
+                        CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION
+                    )
+                )
+                print(f"tags_to_delete={tags_to_delete} statuses_to_delete={statuses_to_delete}")
             pending = db.scalars(
                 pending_case_query(
                     TAXONOMY_VERSION,
                     court=args.court,
                     source_type=args.source_type,
+                    include_tagged=args.retag,
                 ).limit(args.limit or 10)
             ).all()
             preview_tags = sum(len(build_case_tags(case, LegalTagger())) for case in pending)
@@ -190,6 +197,15 @@ def main() -> None:
                 f"taxonomy={TAXONOMY_VERSION}"
             )
             return
+
+        if args.retag:
+            db.execute(delete(CaseTag).where(CaseTag.taxonomy_version == TAXONOMY_VERSION))
+            db.execute(
+                delete(CaseTaggingStatus).where(
+                    CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION
+                )
+            )
+            db.commit()
 
         cases_tagged, tags_created = tag_pending_cases(
             db,

@@ -933,23 +933,32 @@ def main() -> None:
         if args.case_ids_csv:
             scoped_case_ids = sorted(set(scoped_case_ids + load_case_ids_from_csv(args.case_ids_csv)))
 
+        if args.dry_run:
+            if scoped_case_ids:
+                statement = select(Case).where(Case.id.in_(scoped_case_ids)).order_by(Case.id)
+                if args.replace_existing:
+                    chunks_to_delete = db.scalar(
+                        select(func.count()).select_from(CaseChunk).where(
+                            CaseChunk.case_id.in_(scoped_case_ids)
+                        )
+                    )
+                    print(f"chunks_to_delete={chunks_to_delete}")
+            else:
+                statement = pending_case_query(
+                    court=args.court, source_type=args.source_type
+                ).limit(args.limit or 10)
+            pending = db.scalars(statement).all()
+            estimated_chunks = sum(len(build_case_chunk_layers(case)) for case in pending)
+            print(f"pending_sample={len(pending)} estimated_chunks={estimated_chunks}")
+            return
+
         if scoped_case_ids:
             cases_chunked, chunks_created = rebuild_case_chunks(
                 db,
                 case_ids=scoped_case_ids,
-                replace_existing=args.replace_existing or True,
+                replace_existing=args.replace_existing,
             )
             print(f"cases_chunked={cases_chunked} chunks_created={chunks_created}")
-            return
-
-        if args.dry_run:
-            pending = db.scalars(
-                pending_case_query(court=args.court, source_type=args.source_type).limit(
-                    args.limit or 10
-                )
-            ).all()
-            estimated_chunks = sum(len(build_case_chunk_layers(case)) for case in pending)
-            print(f"pending_sample={len(pending)} estimated_chunks={estimated_chunks}")
             return
 
         cases_chunked, chunks_created = chunk_pending_cases(

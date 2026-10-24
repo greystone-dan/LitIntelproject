@@ -163,5 +163,7 @@ No other high-confidence dead-code or misleading-name findings were identified.
 The focused pytest command could not start because `pytest` is not installed.
 `python scripts/check_generated_docs.py` also could not complete: its API and
 schema generators lack the installed `fastapi` and `sqlalchemy` packages.
-`git diff --check` passed before this report was added. No code or tests were
-changed, and no database or external service was used.
+The staged report passed `git diff --cached --check`. GitHub's Tests and
+Documentation Sync runs for this commit concluded `action_required` with no
+jobs, so a green CI result was not available. No code or tests were changed,
+and no database or external service was used.

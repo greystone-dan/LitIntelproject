@@ -1734,6 +1734,10 @@ Set secrets only in ignored environment files or secure environment configuratio
 
 ### Scheduled/Long Jobs
 
+`scripts/scheduled_intake_daemon.py` performs A2AJ discovery only: run records
+use `scheduled_discovery` and report zero imported decisions in both normal and
+dry-run modes. It does not ingest discovered decisions.
+
 The `safe` and `enrich` profiles currently include the V3 tagging writer, whose
 activation status conflicts across source comments and the proposal's
 `review_status: proposed`; see [LEGAL_TAGGING.md](LEGAL_TAGGING.md). Until that

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Low-priority scheduled intake of new decisions from A2AJ and court sources.
+"""Low-priority scheduled discovery of new decisions from A2AJ.
 
 Runs continuously on Daniel's PC, checking for new decisions every 6 hours (A2AJ)
-or 24 hours (court sources), deduplicating, and importing without interfering with
-the live site. Designed to be pausable, resume-able, and disable-able.
+and reporting discoveries without importing decisions. Designed to be pausable,
+resume-able, and disable-able.
 
 Disable by:
   - Setting SCHEDULED_INTAKE_ENABLED=false in .env
@@ -150,7 +150,7 @@ class ScheduledIntakeDaemon:
                 run = IngestionRun(
                     source_type=source_type,
                     source_name="scheduled_intake",
-                    run_type="scheduled_discovery" if self.dry_run else "scheduled_ingest",
+                    run_type="scheduled_discovery",
                     status=status,
                     records_seen=records_discovered,
                     records_ingested=records_imported,
@@ -193,7 +193,7 @@ class ScheduledIntakeDaemon:
 
         Returns (discovered_count, decisions_list) for reporting.
         """
-        logger.info("Starting A2AJ discovery in dry-run mode")
+        logger.info("Starting A2AJ discovery-only check (no decisions will be imported)")
         from scripts.ingest_a2aj_parquet import build_case
         from sqlalchemy import select
         from backend.database import Case
@@ -259,7 +259,7 @@ class ScheduledIntakeDaemon:
             return 0, []
 
     def run_once(self) -> None:
-        """Run one cycle of discovery/ingestion checks."""
+        """Run one cycle of discovery-only checks."""
         if not self.is_enabled():
             logger.info("Scheduled intake is disabled")
             return
@@ -279,9 +279,9 @@ class ScheduledIntakeDaemon:
                     "a2aj_scheduled",
                     "completed",
                     records_discovered=discovered,
-                    records_imported=0 if self.dry_run else discovered,
+                    records_imported=0,
                 )
-                logger.info(f"A2AJ intake cycle: discovered={discovered}")
+                logger.info(f"A2AJ discovery-only cycle: discovered={discovered}, imported=0")
 
         finally:
             self.release_lock()

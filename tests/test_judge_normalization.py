@@ -129,6 +129,22 @@ def test_fca_surname_only_is_court_scoped():
 	assert len(g) == 1 and set(g[0].members) == {"Eleanor Dawson", "DAWSON J.A."}
 
 
+def test_fca_surname_only_does_not_join_fc_when_fca_service_predates_it():
+	day = 365
+	spans = {"Eleanor Dawson": (2010 * day, 2020 * day), "DAWSON J.A.": (1990 * day, 2000 * day)}
+	courts = {"Eleanor Dawson": {"FC"}, "DAWSON J.A.": {"FCA"}}
+	groups = group_judge_names({"Eleanor Dawson": 300, "DAWSON J.A.": 234}, spans, courts)
+	assert not any("DAWSON J.A." in group.members for group in groups)
+
+
+def test_fca_surname_only_keeps_366_day_elevation_tolerance():
+	day = 365
+	fc_end = 2010 * day
+	spans = {"Eleanor Dawson": (2000 * day, fc_end), "DAWSON J.A.": (fc_end - 366, 2020 * day)}
+	groups = group_judge_names({"Eleanor Dawson": 300, "DAWSON J.A.": 234}, spans)
+	assert len(groups) == 1 and set(groups[0].members) == {"Eleanor Dawson", "DAWSON J.A."}
+
+
 def test_bare_strings_stay_in_their_own_court():
 	counts = {"Henry S. Brown": 60, "Russell Brown": 371, "The Honourable Mr. Justice Brown": 40}
 	courts = {"Henry S. Brown": {"FC"}, "Russell Brown": {"SCC"}, "The Honourable Mr. Justice Brown": {"FC"}}
@@ -142,6 +158,32 @@ def test_supreme_court_judge_later_on_fca_merges_when_dates_do_not_overlap():
 	spans = {"Marshall Rothstein": (2006 * day, 2016 * day), "ROTHSTEIN J.A.": (1992 * day, 2006 * day)}
 	g = group_judge_names({"Marshall Rothstein": 546, "ROTHSTEIN J.A.": 252}, spans, {"Marshall Rothstein": {"SCC"}, "ROTHSTEIN J.A.": {"FCA"}})
 	assert len(g) == 1 and set(g[0].members) == {"Marshall Rothstein", "ROTHSTEIN J.A."}
+
+
+def test_fca_before_scc_still_joins_scc_only_cluster():
+	day = 365
+	counts = {"Alex Sample": 20, "SAMPLE J.A.": 10}
+	spans = {"Alex Sample": (2010 * day, 2020 * day), "SAMPLE J.A.": (1990 * day, 2000 * day)}
+	courts = {"Alex Sample": {"SCC"}, "SAMPLE J.A.": {"FCA"}}
+	groups = group_judge_names(counts, spans, courts)
+	assert len(groups) == 1 and set(groups[0].members) == set(counts)
+
+
+def test_fca_before_cluster_without_court_information_still_joins():
+	day = 365
+	counts = {"Alex Sample": 20, "SAMPLE J.A.": 10}
+	spans = {"Alex Sample": (2010 * day, 2020 * day), "SAMPLE J.A.": (1990 * day, 2000 * day)}
+	groups = group_judge_names(counts, spans)
+	assert len(groups) == 1 and set(groups[0].members) == set(counts)
+
+
+def test_fca_before_non_scc_cluster_without_fc_member_still_joins():
+	day = 365
+	counts = {"Odette Desjardins": 20, "DESJARDINS J.A.": 10}
+	spans = {"Odette Desjardins": (2010 * day, 2020 * day), "DESJARDINS J.A.": (1990 * day, 2000 * day)}
+	courts = {"Odette Desjardins": {"FCA"}, "DESJARDINS J.A.": {"FCA"}}
+	groups = group_judge_names(counts, spans, courts)
+	assert len(groups) == 1 and set(groups[0].members) == set(counts)
 
 
 def test_panel_ignores_sentence_fragments():

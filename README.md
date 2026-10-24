@@ -44,13 +44,11 @@ This is a delivery focus, not a claim that every planned discovery feature is
 already implemented. See the [roadmap](ROADMAP.md) and the
 [Data Explorer implementation](backend/pages/data_explorer.py).
 
-The current court focus is Federal Court (FC), Supreme Court of Canada (SCC),
-and Federal Court of Appeal (FCA). Issue #541, reviewed 2026-10-17, supplies an
-approximate snapshot of 75,677 decisions across FC, the Refugee Appeal Division
-(RAD), SCC, FCA, and the Refugee Protection Division (RPD). This is an
-issue-provided, date-scoped figure, not independently verified against the
-database and not a live coverage claim. The About view reads the live inventory
-from `/api/about/stats`.
+The working court scope is Federal Court (FC), Supreme Court of Canada (SCC),
+and Federal Court of Appeal (FCA). Whole-site decision totals also include
+Refugee Protection Division (RPD) and Refugee Appeal Division (RAD) tribunal
+decisions, so they are not counts of the working court scope. Use the live About
+inventory at `/api/about/stats` rather than a dated estimate.
 
 Selected routes are listed below. Their presence and current API contracts are
 checked against the generated [API reference](docs/API_REFERENCE.generated.md).
@@ -170,5 +168,7 @@ and runs CI; cloud sessions do not connect to the live database.
 - [Generated API reference](docs/API_REFERENCE.generated.md)
 - [Generated schema reference](docs/SCHEMA_REFERENCE.generated.md)
 - [Current system reference](SYSTEM_REFERENCE.md)
+- [Plain-language case pipeline](docs/PIPELINE_PLAIN.md)
+- [Main database data dictionary](docs/DATA_DICTIONARY.md)
 - [Product roadmap](ROADMAP.md)
 - [Setup guide](SETUP.md)

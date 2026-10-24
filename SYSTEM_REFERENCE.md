@@ -63,6 +63,12 @@ Read the product, architecture, data model, operations, validation, and review s
 
 AI CaseLibrary is a Canadian legal research system, currently optimized for immigration litigation. It preserves judicial decisions and supporting sources, enriches them with deterministic legal structure, and provides searchable case, citation, statute, judge, and Federal Court activity views.
 
+The working court scope is Federal Court (FC), Supreme Court of Canada (SCC),
+and Federal Court of Appeal (FCA). Whole-site decision totals also include
+Refugee Protection Division (RPD) and Refugee Appeal Division (RAD) tribunal
+decisions; do not read those totals as counts within the working court scope.
+The live whole-site inventory is exposed at `/api/about/stats`.
+
 The central operating principle is:
 
 > Preserve source records first, enrich them second, and keep every derived signal traceable to stored source material.
@@ -2456,6 +2462,8 @@ The complete module-to-test coverage matrix, known gaps, and minimum validation 
 | `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Failure classification, recovery actions, and escalation record |
 | `docs/RESEARCH_UI_GUIDE.md` | Researcher-facing active interface and interpretation guide |
 | `docs/METRICS_DICTIONARY.md` | Metric definitions, formulas, scopes, and cautions |
+| `docs/DATA_DICTIONARY.md` | Main database table meanings, key columns, and known pipeline-fill steps |
+| `docs/PIPELINE_PLAIN.md` | Plain-language path from public decision acquisition to search |
 | `docs/TESTING_MATRIX.md` | Test coverage map, current baseline, gaps, and change-specific validation |
 | `docs/CHANGE_MANAGEMENT.md` | Required process and release criteria for all change types |
 | `CHANGELOG.md` | Chronological implementation and verification record |

@@ -14,7 +14,7 @@ The owner (Daniel) does not code. Explain things in plain words, do merges and d
 
 ## Run and test
 - Windows: `./venv/Scripts/python.exe -m pytest -q`. Linux/CI: `pip install -r requirements.txt` then `python -m pytest -q`.
-- Three tests are known to fail without local services and are deselected in CI (`.github/workflows/tests.yml`): two need Postgres on localhost:5432 and one expects an Ollama client config. Run them on Daniel's machine when relevant.
+- In `.github/workflows/tests.yml`, the pytest job runs without `--deselect` and has no PostgreSQL service; the separate migrations job starts PostgreSQL.
 - `scripts/check_generated_docs.py` must pass (the Documentation Sync workflow runs it). If you add or remove a script or a file under `backend/`, or change routes or tables, run `python scripts/regenerate_docs.py` before pushing: it rebuilds the generated docs, adds missing rows to the backend inventory in `docs/ARCHITECTURE.md`, and runs the check.
 
 ## Hard rules (Daniel's standing rules)

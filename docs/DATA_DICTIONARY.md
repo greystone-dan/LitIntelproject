@@ -824,7 +824,7 @@ Layer: **derived/experiment control**
 
 Meaning: Identifies a run and configuration for a contextual-authority snapshot.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -840,7 +840,7 @@ Layer: **derived/experiment control**
 
 Meaning: Selects the active contextual snapshot through a singleton row.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -853,7 +853,7 @@ Layer: **derived/experiment**
 
 Meaning: Represents one method/version-specific analysis unit for one case in a snapshot.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -868,7 +868,7 @@ Layer: **derived/experiment**
 
 Meaning: Locates an ordered text segment within a contextual analysis unit.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -883,7 +883,7 @@ Layer: **derived/experiment link**
 
 Meaning: Associates citation occurrences with a contextual analysis unit.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -896,7 +896,7 @@ Layer: **derived/experiment**
 
 Meaning: Stores a contextual-authority label or observation and its confidence/provenance.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -911,7 +911,7 @@ Layer: **derived/experiment evidence**
 
 Meaning: Points to the source text supporting a contextual observation.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|
@@ -926,7 +926,7 @@ Layer: **review activity**
 
 Meaning: Records a reviewer’s decision and rationale for an observation.
 
-Pipeline fill: `not determined` from the inspected local code.
+Created by `alembic/versions/0026_contextual_authority_phase0.py`. Runtime fill: `not determined`.
 
 | Column | Meaning |
 |---|---|

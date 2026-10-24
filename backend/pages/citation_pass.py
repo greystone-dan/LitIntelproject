@@ -190,6 +190,5 @@ def citation_pass_page_html() -> str:
 		load().catch(e=>{document.getElementById('cases').innerHTML=`<div class=\"empty\">${esc(e.message)}</div>`;});
 	</script>
 </body>
-</html>"""
-
+</html>""".replace(r'\"', '"')
 

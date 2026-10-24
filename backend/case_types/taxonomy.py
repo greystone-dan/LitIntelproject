@@ -241,7 +241,7 @@ CASE_TYPES: tuple[CaseType, ...] = (
        [rule("canada.federal_courts_rules", 8, 8), rule("canada.federal_courts_rules", 51, 51), rule("canada.federal_courts_rules", 221, 221),
         rule("canada.federal_courts_rules", 312, 312), rule("canada.federal_courts_rules", 359, 359), rule("canada.federal_courts_rules", 369, 369),
         rule("canada.federal_courts_rules", 397, 397), rule("canada.federal_courts_rules", 399, 399), rule(FC_RULES, 1, 22)],
-       [r"extension of time", r"motion for (?:an )?extension", r"contempt", r"motion to strike", r"leave to intervene",
+       [r"extension of time", r"motion for (?:an )?extension", r"\bcontempt\b", r"motion to strike", r"leave to intervene",
         r"motion for (?:an )?order (?:quashing|dismissing) the (?:appeal|application)", r"prolongation de délai"],
        general=True,
        description="Decisions whose subject is procedural (extensions, motions to strike, interventions) rather than the immigration question."),

@@ -274,7 +274,7 @@ def _extract_levels(paragraphs: Sequence[str], numbers: Sequence[int], frame: Ca
 
 
 def _subject(intro: str) -> str:
-	if not re.search(r"Immigration and Refugee Protection Act|IRPA|Citizenship Act|Immigration Act|Convention refugee|refugee protection|\\bIRCC\\b|Citizenship and Immigration|immigration|Refugee", intro):
+	if not re.search(r"Immigration and Refugee Protection Act|IRPA|Citizenship Act|Immigration Act|Convention refugee|refugee protection|\bIRCC\b|Citizenship and Immigration|immigration|Refugee", intro):
 		return "not an immigration matter"
 	scores = []
 	for key, rx in _SUBJECT_RX:

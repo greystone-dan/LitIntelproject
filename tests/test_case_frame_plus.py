@@ -40,6 +40,10 @@ class FramePlusTests(unittest.TestCase):
 	def test_subject(self):
 		self.assertEqual(self.f.subject, "humanitarian and compassionate application")
 
+	def test_ircc_alone_is_not_classified_as_not_an_immigration_matter(self):
+		from backend.case_frame_plus import _subject
+		self.assertNotEqual(_subject("IRCC"), "not an immigration matter")
+
 	def test_arguments_by_side(self):
 		sides = {a.side: a.para for a in self.f.arguments}
 		self.assertEqual(sides, {"applicant": 3, "respondent": 4})

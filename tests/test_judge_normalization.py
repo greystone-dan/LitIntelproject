@@ -129,6 +129,22 @@ def test_fca_surname_only_is_court_scoped():
 	assert len(g) == 1 and set(g[0].members) == {"Eleanor Dawson", "DAWSON J.A."}
 
 
+def test_fca_surname_only_does_not_join_fc_when_fca_service_predates_it():
+	day = 365
+	spans = {"Eleanor Dawson": (2010 * day, 2020 * day), "DAWSON J.A.": (1990 * day, 2000 * day)}
+	courts = {"Eleanor Dawson": {"FC"}, "DAWSON J.A.": {"FCA"}}
+	groups = group_judge_names({"Eleanor Dawson": 300, "DAWSON J.A.": 234}, spans, courts)
+	assert not any("DAWSON J.A." in group.members for group in groups)
+
+
+def test_fca_surname_only_keeps_366_day_elevation_tolerance():
+	day = 365
+	fc_end = 2010 * day
+	spans = {"Eleanor Dawson": (2000 * day, fc_end), "DAWSON J.A.": (fc_end - 366, 2020 * day)}
+	groups = group_judge_names({"Eleanor Dawson": 300, "DAWSON J.A.": 234}, spans)
+	assert len(groups) == 1 and set(groups[0].members) == {"Eleanor Dawson", "DAWSON J.A."}
+
+
 def test_bare_strings_stay_in_their_own_court():
 	counts = {"Henry S. Brown": 60, "Russell Brown": 371, "The Honourable Mr. Justice Brown": 40}
 	courts = {"Henry S. Brown": {"FC"}, "Russell Brown": {"SCC"}, "The Honourable Mr. Justice Brown": {"FC"}}

@@ -262,8 +262,10 @@ def group_judge_names(counts: dict[str, int], spans: dict[str, tuple[int, int]] 
 			fits = []
 			for cluster in clusters:
 				cluster_span = _span(cluster, spans or {})
+				cluster_courts = set().union(*(courts.get(member, set()) for member in cluster)) if courts else set()
+				is_scc_only = cluster_courts == {"SCC"}
 				if fca_start and cluster_span and (cluster_span[1] <= fca_start[0] + ELEVATION_TOLERANCE_DAYS
-						or fca_start[1] <= cluster_span[0] + ELEVATION_TOLERANCE_DAYS):
+						or (is_scc_only and fca_start[1] <= cluster_span[0] + ELEVATION_TOLERANCE_DAYS)):
 					fits.append(cluster)
 			if len(fits) == 1:
 				fits[0].extend(bare_fca)

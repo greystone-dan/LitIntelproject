@@ -2,7 +2,12 @@
 
 import pytest
 
-from backend.citation_refine.pinpoints import paragraph_pinpoints, target_paragraphs
+from backend.citation_refine.pinpoints import (
+	_expand_range,
+	parse_pinpoint,
+	paragraph_pinpoints,
+	target_paragraphs,
+)
 from backend.paragraph_cited_by import Occurrence, build_edges, citation_target_paragraph
 from backend.reader_service import _pinpoint_response_fields
 
@@ -86,6 +91,36 @@ def test_each_named_paragraph_gets_a_cited_by_edge():
 def test_more_range_spellings(text, paragraphs):
 	pins = paragraph_pinpoints(text)
 	assert pins is not None and pins.paragraphs == paragraphs
+
+
+@pytest.mark.parametrize(
+	"start, end, expected",
+	[
+		(199, 2, [199, 200, 201, 202]),
+		(45, 8, [45, 46, 47, 48]),
+		(1203, 5, [1203, 1204, 1205]),
+		(10, 12, [10, 11, 12]),
+		(45, 48, [45, 46, 47, 48]),
+		(199, 1, [199, 200, 201]),
+	],
+)
+def test_abbreviated_and_full_ranges_expand_correctly(start, end, expected):
+	assert _expand_range(start, end) == expected
+
+
+@pytest.mark.parametrize(
+	"text, expected",
+	[
+		("paras 199-02", (199, 200, 201, 202)),
+		("paras 45-8", (45, 46, 47, 48)),
+		("paras 1203-05", (1203, 1204, 1205)),
+		("paras 10-12", (10, 11, 12)),
+		("paras 45-48", (45, 46, 47, 48)),
+	],
+)
+def test_pinpoint_parser_expands_abbreviated_and_full_ranges(text, expected):
+	pinpoint = parse_pinpoint(text)
+	assert pinpoint is not None and pinpoint.values == expected
 
 
 def test_reporter_year_in_brackets_is_not_a_paragraph():

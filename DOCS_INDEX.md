@@ -41,6 +41,12 @@ Primary explainer docs:
 8. `docs/BACKGROUND_JOBS.md` documents the separate, disabled-by-default interval
    runner, JSON config, DB-free locks, scheduling, cleanup and exit codes. It
    does not change web startup or replace the overnight runbook.
+9. `docs/DATA_DICTIONARY.md` is a hand-written guide to main database table
+   meanings, selected columns, and known fill steps; ORM and migrations remain
+   authoritative for exact schema.
+10. `docs/PIPELINE_PLAIN.md` explains the decision-to-search path in plain
+   language; source code and acquisition runbooks remain authoritative for
+   exact behavior.
 
 ## Active Vs Legacy Locations
 
@@ -149,6 +155,7 @@ this inventory.
 | `docs/CLOUDFLARE_TUNNEL_SETUP.md` | Cloudflare tunnel setup, with standalone refresh retained as fallback only. |
 | `docs/CONFIGURATION_REFERENCE.md` | Application configuration variables and defaults. |
 | `docs/DAILY_INTAKE.md` | Daily source-intake workflow and checks. |
+| `docs/DATA_DICTIONARY.md` | Main database table meanings, key columns, and known pipeline-fill steps. |
 | `docs/DATA_SOURCE_REGISTER.md` | Register of data sources, provenance, and acquisition notes. |
 | `docs/DEPLOYMENT_COMMANDS.md` | Remote Control setup and deployment workflow for operators. |
 | `docs/DEPLOYMENT_DOCKER.md` | Optional Docker build and local run instructions. |
@@ -163,6 +170,7 @@ this inventory.
 | `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Consolidated recovery guidance for the site, application, jobs, data, tests, and Git workflows. |
 | `docs/OPERATIONS_LOGGING.md` | Operational logging conventions and relevant log locations. |
 | `docs/PARAGRAPH_CITED_BY.md` | Paragraph-level “cited by” batch-job design and use. |
+| `docs/PIPELINE_PLAIN.md` | Plain-language path from public decision acquisition to search. |
 | `docs/RESEARCH_UI_GUIDE.md` | Guide to active research UI workflows and boundaries. |
 | `docs/SECURITY_DEPENDENCIES.md` | Dependency scanning and software-bill-of-materials guidance. |
 | `docs/SECURITY_HEADERS.md` | Optional security response-header configuration and limits. |

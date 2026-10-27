@@ -44,13 +44,11 @@ This is a delivery focus, not a claim that every planned discovery feature is
 already implemented. See the [roadmap](ROADMAP.md) and the
 [Data Explorer implementation](backend/pages/data_explorer.py).
 
-The current court focus is Federal Court (FC), Supreme Court of Canada (SCC),
-and Federal Court of Appeal (FCA). Issue #541, reviewed 2026-10-17, supplies an
-approximate snapshot of 75,677 decisions across FC, the Refugee Appeal Division
-(RAD), SCC, FCA, and the Refugee Protection Division (RPD). This is an
-issue-provided, date-scoped figure, not independently verified against the
-database and not a live coverage claim. The About view reads the live inventory
-from `/api/about/stats`.
+The working court scope is Federal Court (FC), Supreme Court of Canada (SCC),
+and Federal Court of Appeal (FCA). Whole-site decision totals also include
+Refugee Protection Division (RPD) and Refugee Appeal Division (RAD) tribunal
+decisions, so they are not counts of the working court scope. Use the live About
+inventory at `/api/about/stats` rather than a dated estimate.
 
 Selected routes are listed below. Their presence and current API contracts are
 checked against the generated [API reference](docs/API_REFERENCE.generated.md).
@@ -96,20 +94,15 @@ browser.
 
 ## Run tests
 
-The CI test job uses Python 3.12 and installs `requirements-dev.txt`. Run the
-same test selection locally:
+The CI test job uses Python 3.12, installs `requirements-dev.txt`, and runs
+pytest without `--deselect` or a PostgreSQL service. PostgreSQL is provided by
+the separate migrations job. Run tests locally with:
 
 ```bash
 pip install -r requirements-dev.txt
-python -m pytest -q \
-  --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence \
-  --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes \
-  --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint
+python -m pytest -q
 ```
 
-Those three tests are deliberately deselected in CI: two require a local
-PostgreSQL service, and one expects an Ollama client configuration that is not
-available in a clean test environment and remains under investigation.
 Generated API, schema, and script documentation is checked with:
 
 ```bash
@@ -170,5 +163,7 @@ and runs CI; cloud sessions do not connect to the live database.
 - [Generated API reference](docs/API_REFERENCE.generated.md)
 - [Generated schema reference](docs/SCHEMA_REFERENCE.generated.md)
 - [Current system reference](SYSTEM_REFERENCE.md)
+- [Plain-language case pipeline](docs/PIPELINE_PLAIN.md)
+- [Main database data dictionary](docs/DATA_DICTIONARY.md)
 - [Product roadmap](ROADMAP.md)
 - [Setup guide](SETUP.md)

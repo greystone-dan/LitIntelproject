@@ -27,6 +27,12 @@ def test_window_page_data_and_opener_are_served_without_the_database():
     assert script.status_code == 200 and "javascript" in script.headers["content-type"] and "ilitTour" in script.text
 
 
+def test_the_card_stays_in_one_place_for_judge_profiles_to_the_workbench():
+    cards = {step["id"]: step["card"] for step in window_steps()}
+    for key in ("sh-judges", "sh-judge-open", "sh-judge-charts", "sh-fc-data", "sh-workbench"):
+        assert cards[key] == cards["sh-judges"], key      # the same spot as the Judge Profiles card, so it does not jump
+
+
 def test_every_picture_the_data_names_is_served_and_none_is_left_over():
     names = referenced_images()
     assert names

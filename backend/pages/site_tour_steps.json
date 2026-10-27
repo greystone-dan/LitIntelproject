@@ -726,7 +726,7 @@
       "title": "Next, FC Activity",
       "text": "Let's continue to the FC Activity intelligence tab.",
       "target": "#researchViews [data-tab='fc-analytics']",
-      "cardPos": "bottom-right"
+      "cardPos": "top-right"
     },
     {
       "id": "sh-fc",
@@ -757,7 +757,8 @@
       "url": "/data-explorer?tab=fc-analytics",
       "title": "Let's continue to the last major section of the website, the Analyst Workbench Demo.",
       "text": "",
-      "target": "nav.primary-groups a.primary-link[href='/workbench']"
+      "target": "nav.primary-groups a.primary-link[href='/workbench']",
+      "cardPos": "top-right"
     },
     {
       "id": "sh-workbench",
@@ -785,7 +786,8 @@
       "url": "/workbench",
       "title": "Finally, we will finish off by exploring the most impactful use case for iLIT - the Live Analysis Feature.",
       "text": "",
-      "target": "#tab-live"
+      "target": "#tab-live",
+      "cardPos": "top-right"
     },
     {
       "id": "sh-la-1",

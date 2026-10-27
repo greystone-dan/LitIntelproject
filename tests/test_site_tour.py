@@ -84,6 +84,7 @@ def test_tour_follows_daniels_step_list_in_order_and_in_his_words():
     assert steps["sh-next-wb"]["title"] == "Let's continue to the last major section of the website, the Analyst Workbench Demo."
     assert "still in development" in steps["sh-workbench"]["text"]
     assert "target" not in steps["sh-workbench"] and steps["sh-workbench"]["cardPos"] == "top-right"          # no highlight, the card high on the screen
+    assert all(steps[k]["cardPos"] == "top-right" for k in ("sh-judges", "sh-fc-data", "sh-fc", "sh-next-wb", "sh-workbench", "sh-next-la"))   # one fixed spot, so the card does not jump
     assert steps["sh-next-la"]["title"].startswith("Finally, we will finish off by exploring the most impactful use case for iLIT")
     la1 = steps["sh-la-1"]
     assert la1["cardSize"] == "large" and not la1.get("target") and "**iLIT will work not just on court decisions, but on any inputted text.**" in la1["text"]

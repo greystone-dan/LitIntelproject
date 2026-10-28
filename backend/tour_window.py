@@ -29,7 +29,10 @@ def window_html() -> str:
 
 @lru_cache(maxsize=1)
 def window_data() -> str:
-    return (_ASSETS / "tour_data.json").read_text(encoding="utf-8")
+    from .judge_feature import filter_window_data, judge_profiles_enabled
+
+    text = (_ASSETS / "tour_data.json").read_text(encoding="utf-8")
+    return text if judge_profiles_enabled() else json.dumps(filter_window_data(json.loads(text)), ensure_ascii=False)
 
 
 @lru_cache(maxsize=1)

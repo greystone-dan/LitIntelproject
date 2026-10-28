@@ -228,7 +228,9 @@ _MAIN_BAR_STYLE = (
 
 
 def live_analysis_page_html() -> str:
-	html = data_explorer_page_html(pitch_navigation=False)
+	from ..judge_feature import hide_judge_profiles_in_page
+
+	html = hide_judge_profiles_in_page(data_explorer_page_html(pitch_navigation=False))
 	# Same top bar as the main site; the tabs are plain links, so this page keeps its own tab handling.
 	html = re.sub(r'<header class="topbar">.*?</header>', lambda _m: _MAIN_BAR, html, count=1, flags=re.S)
 	html = _replace_once(

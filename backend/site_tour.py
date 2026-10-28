@@ -18,7 +18,9 @@ _PAGES = Path(__file__).resolve().parent / "pages"
 
 @lru_cache(maxsize=1)
 def tour_steps() -> dict:
-    return json.loads((_PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))
+    from .judge_feature import filter_tour_data
+
+    return filter_tour_data(json.loads((_PAGES / "site_tour_steps.json").read_text(encoding="utf-8")))
 
 
 def is_tour_sample(text: str) -> bool:

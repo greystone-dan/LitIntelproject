@@ -18,6 +18,7 @@ from .audit import RequestAuditMiddleware
 from .database import init_db
 from .db_limits import register_timeout_handlers
 from .degraded_mode import register_degraded_mode
+from .judge_feature import is_hidden_judge_path, judge_profiles_enabled
 from .health import liveness, readiness
 from .request_context import (
     RequestContextMiddleware,
@@ -105,6 +106,14 @@ async def reject_nul_in_query(request: Request, call_next):
     """Answer 400 for a NUL byte in the query string; Postgres rejects it and it would be a raw 500."""
     if "\x00" in request.url.query or "%00" in request.url.query:
         return JSONResponse({"detail": "Query parameters must not contain NUL bytes."}, status_code=400)
+    return await call_next(request)
+
+
+@app.middleware("http")
+async def hide_judge_profiles(request: Request, call_next):
+    """While ILIT_JUDGE_PROFILES is off, the judge profile pages and APIs answer 404."""
+    if not judge_profiles_enabled() and is_hidden_judge_path(request.url.path):
+        return JSONResponse({"detail": "Not Found"}, status_code=404)
     return await call_next(request)
 
 

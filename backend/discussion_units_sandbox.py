@@ -32,7 +32,9 @@ PARAGRAPH_EVIDENCE_BRIDGE = (
 def discussion_units_sandbox_page_html() -> str:
     from .pages.data_explorer import data_explorer_page_html
 
-    html = data_explorer_page_html(pitch_navigation=False)
+    from .judge_feature import hide_judge_profiles_in_page
+
+    html = hide_judge_profiles_in_page(data_explorer_page_html(pitch_navigation=False))
     for source, target in (
         ("/analytics/search/cases/", "/discussion-units-sandbox/cases/"),
         ("/analytics/search/cases?", "/discussion-units-sandbox/search?"),

@@ -44,3 +44,19 @@ def test_page_hides_tab_and_tour_steps(monkeypatch):
     tour_steps.cache_clear()
     assert "sh-judges" in {s["id"] for s in tour_steps()["steps"]}
     tour_steps.cache_clear()
+
+
+def test_recorded_tour_drops_judge_steps_and_renumbers(monkeypatch):
+    import json
+    from backend.judge_feature import filter_window_data
+    from backend.tour_window import _ASSETS
+
+    data = json.loads((_ASSETS / "tour_data.json").read_text(encoding="utf-8"))
+    monkeypatch.delenv("ILIT_JUDGE_PROFILES", raising=False)
+    out = filter_window_data(data)
+    ids = [m["id"] for m in out["moments"]]
+    assert not {"sh-side-judge", "sh-judges", "sh-judge-open", "sh-judge-charts"} & set(ids)
+    assert [m["step"] for m in out["moments"]] == list(range(1, len(ids) + 1))
+    assert "Judge Profiles" not in json.dumps(out["moments"][13]["text"])
+    monkeypatch.setenv("ILIT_JUDGE_PROFILES", "1")
+    assert filter_window_data(data) is data

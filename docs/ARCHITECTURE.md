@@ -233,6 +233,7 @@ test checks that these paths continue to exist.
 | `backend/judge_aliases.py` | Read-side helpers for the reversible judge alias layer |
 | `backend/judge_fc_activity.py` | Attach Federal Court docket activity (leave, JR, motions, stays) to a canonical judge profile |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
+| `backend/judge_feature.py` | ILIT_JUDGE_PROFILES switch: hides the judge profile feature (default hidden) |
 | `backend/judge_normalization.py` | Deterministic judge-name normalization (no database, no AI) |
 | `backend/learned_positions.py` | Whose-position tags from the cue rules plus a small learned model (numpy only, no model call) |
 | `backend/learned_positions_weights.npz` | TODO: describe this file |

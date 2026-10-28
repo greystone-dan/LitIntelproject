@@ -336,7 +336,9 @@ from .models import (
 
 def _data_explorer_page_html() -> str:
 	"""Render the active Data Explorer page."""
-	return data_explorer_page_html()
+	from .judge_feature import hide_judge_profiles_in_page
+
+	return hide_judge_profiles_in_page(data_explorer_page_html())
 
 router = APIRouter(tags=["cases"])
 router.include_router(statute_consideration_router)

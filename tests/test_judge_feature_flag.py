@@ -36,8 +36,11 @@ def test_page_hides_tab_and_tour_steps(monkeypatch):
     monkeypatch.delenv("ILIT_JUDGE_PROFILES", raising=False)
     hidden = hide_judge_profiles_in_page(page)
     assert 'data-tab="judge-profile">Judge' not in hidden and "judgeFeatureOff" in hidden
+    tour_steps.cache_clear()
     ids = {s["id"] for s in tour_steps()["steps"]}
     assert "sh-judges" not in ids and "sh-side-judge" not in ids
     monkeypatch.setenv("ILIT_JUDGE_PROFILES", "1")
     assert hide_judge_profiles_in_page(page) == page
+    tour_steps.cache_clear()
     assert "sh-judges" in {s["id"] for s in tour_steps()["steps"]}
+    tour_steps.cache_clear()

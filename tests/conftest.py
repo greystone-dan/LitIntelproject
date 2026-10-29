@@ -1,11 +1,16 @@
 """Pytest configuration and fixtures for LitIntel tests."""
 
+import os
+
 import pytest
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.engine import make_url
 
 from backend.database import DATABASE_URL
+
+# The site hides the judge profile feature unless ILIT_JUDGE_PROFILES is set; the suite tests it switched on.
+os.environ.setdefault("ILIT_JUDGE_PROFILES", "1")
 
 
 @pytest.fixture
